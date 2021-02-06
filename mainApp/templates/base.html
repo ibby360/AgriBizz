@@ -53,7 +53,8 @@
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="famieNav">
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                        <a href="index.html" class ="nav-brand"><h5>Agri<span>Bizz</span></h5></a>
+                        {% comment %} < href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt=""></> {% endcomment %}
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
                             <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -131,14 +132,14 @@
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Main Footer Area -->
-        <div class="main-footer bg-img bg-overlay section-padding-80-0" style="background-image: url(img/bg-img/3.jpg);">
+        <div class="main-footer bg-img bg-overlay section-padding-80-0" style="background-image: url({% static 'img/bg-img/3.jpg' %});">
             <div class="container">
                 <div class="row">
 
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="footer-widget mb-80">
-                            <a href="#" class="foo-logo d-block mb-30"><img src="img/core-img/logo2.png" alt=""></a>
+                            <a href="#" class="foo-logo d-block mb-30"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
                             <p>Lorem ipsum dolor sit amet, consecte stare adipiscing elit. In act honcus risus atiner Pellentesque risus.</p>
                             <div class="contact-info">
                                 <p><i class="fa fa-map-pin" aria-hidden="true"></i><span>120 Raymond Rd, New York</span></p>
@@ -179,7 +180,7 @@
                             <!-- Single Recent News Start -->
                             <div class="single-recent-blog d-flex align-items-center">
                                 <div class="post-thumbnail">
-                                    <img src="img/bg-img/4.jpg" alt="">
+                                    <img src="{% static 'img/bg-img/4.jpg' %}" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">WA’s largest farming business on the market</a>
@@ -190,7 +191,7 @@
                             <!-- Single Recent News Start -->
                             <div class="single-recent-blog d-flex align-items-center">
                                 <div class="post-thumbnail">
-                                    <img src="img/bg-img/5.jpg" alt="">
+                                    <img src="{% static 'img/bg-img/5.jpg' %}" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">Beef retail prices hit a record</a>
