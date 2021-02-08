@@ -1,8 +1,8 @@
 {% extends 'base.html' %} 
 {% load static %}
-
+{% block content %}
     <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url('img/bg-img/18.jpg');">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/18.jpg' %});">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -33,7 +33,7 @@
                 <!-- About Us Thumbnail -->
                 <div class="col-12 col-lg-6">
                     <div class="about-us-thumbnail mb-100">
-                        <img src="img/bg-img/24.jpg" alt="">
+                        <img src="{% static 'img/bg-img/24.jpg' %}" alt="">
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                         <div class="section-heading">
                             <p>FARMING PROCESS</p>
                             <h2><span>Farming Practices</span> &amp; Methods</h2>
-                            <img src="img/core-img/decor.png" alt="">
+                            <img src="{% static 'img/core-img/decor.png' %}" alt="">
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetu adipiscing elit. Etiam nunc elit, pretium atlanta urna veloci, fermentum malesuda mina. Donec auctor nislec neque sagittis, sit amet dapibus pellentesque donal feugiat. Nulla mollis magna
                             non sanaliquet, volutpat do zutum, ultrices consectetur, ultrices at purus.</p>
@@ -66,7 +66,7 @@
                     <div class="section-heading text-center">
                         <p>Make the green world</p>
                         <h2><span>Farming Practices</span> To Preserve Land & Water</h2>
-                        <img src="img/core-img/decor2.png" alt="">
+                        <img src="{% static 'img/core-img/decor2.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -78,16 +78,16 @@
                     <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Thumbnail -->
                         <div class="farming-practice-thumbnail">
-                            <img src="img/bg-img/9.jpg" alt="">
+                            <img src="{% static 'img/bg-img/9.jpg' %}" alt="">
                         </div>
                         <!-- Content -->
                         <div class="farming-practice-content text-center">
                             <!-- Icon -->
                             <div class="farming-icon">
-                                <img src="img/core-img/chicken.png" alt="">
+                                <img src="{% static 'img/core-img/chicken.png' %}" alt="">
                             </div>
                             <span>Farming practice for</span>
-                            <h4>Chicken Farmed For Meat</h4>
+                            <a href="practice_details"><h4>Chicken Farmed For Meat</h4></a>
                             <p>Donec nec justo eget felis facilisis ferme ntum. Aliquam portitor mauris sit amet orci. donec salim...</p>
                         </div>
                     </div>
@@ -98,13 +98,13 @@
                     <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="300ms">
                         <!-- Thumbnail -->
                         <div class="farming-practice-thumbnail">
-                            <img src="img/bg-img/10.jpg" alt="">
+                            <img src="{% static 'img/bg-img/10.jpg' %}" alt="">
                         </div>
                         <!-- Content -->
                         <div class="farming-practice-content text-center">
                             <!-- Icon -->
                             <div class="farming-icon">
-                                <img src="img/core-img/pig.png" alt="">
+                                <img src="{% static 'img/core-img/pig.png' %}" alt="">
                             </div>
                             <span>Farming practice for</span>
                             <h4>Pig Farm Management</h4>
@@ -118,13 +118,13 @@
                     <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="500ms">
                         <!-- Thumbnail -->
                         <div class="farming-practice-thumbnail">
-                            <img src="img/bg-img/11.jpg" alt="">
+                            <img src="{% static 'img/bg-img/11.jpg' %}" alt="">
                         </div>
                         <!-- Content -->
                         <div class="farming-practice-content text-center">
                             <!-- Icon -->
                             <div class="farming-icon">
-                                <img src="img/core-img/cow.png" alt="">
+                                <img src="{% static 'img/core-img/cow.png' %}" alt="">
                             </div>
                             <span>Farming practice for</span>
                             <h4>Beef Cattle Farming</h4>
@@ -138,13 +138,13 @@
                     <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Thumbnail -->
                         <div class="farming-practice-thumbnail">
-                            <img src="img/bg-img/12.jpg" alt="">
+                            <img src="{% static 'img/bg-img/12.jpg' %}" alt="">
                         </div>
                         <!-- Content -->
                         <div class="farming-practice-content text-center">
                             <!-- Icon -->
                             <div class="farming-icon">
-                                <img src="img/core-img/cereal.png" alt="">
+                                <img src="{% static 'img/core-img/cereal.png' %}" alt="">
                             </div>
                             <span>Farming practice for</span>
                             <h4>Improved Rice Cultivation</h4>
@@ -158,13 +158,13 @@
                     <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="300ms">
                         <!-- Thumbnail -->
                         <div class="farming-practice-thumbnail">
-                            <img src="img/bg-img/13.jpg" alt="">
+                            <img src="{% static 'img/bg-img/13.jpg' %}" alt="">
                         </div>
                         <!-- Content -->
                         <div class="farming-practice-content text-center">
                             <!-- Icon -->
                             <div class="farming-icon">
-                                <img src="img/core-img/sprout.png" alt="">
+                                <img src="{% static 'img/core-img/sprout.png' %}" alt="">
                             </div>
                             <span>Farming practice for</span>
                             <h4>Soil Improvement Techniques</h4>
@@ -178,13 +178,13 @@
                     <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="500ms">
                         <!-- Thumbnail -->
                         <div class="farming-practice-thumbnail">
-                            <img src="img/bg-img/14.jpg" alt="">
+                            <img src="{% static 'img/bg-img/14.jpg' %}" alt="">
                         </div>
                         <!-- Content -->
                         <div class="farming-practice-content text-center">
                             <!-- Icon -->
                             <div class="farming-icon">
-                                <img src="img/core-img/vegetable.png" alt="">
+                                <img src="{% static 'img/core-img/vegetable.png' %}" alt="">
                             </div>
                             <span>Farming practice for</span>
                             <h4>Intensive Fruit Farming</h4>
@@ -207,7 +207,7 @@
                     <div class="section-heading text-center">
                         <p>HAVE A QUESTION?</p>
                         <h2><span>Get answers</span> to FAQs about the service</h2>
-                        <img src="img/core-img/decor2.png" alt="">
+                        <img src="{% static 'img/core-img/decor2.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -313,7 +313,7 @@
                         <div class="section-heading">
                             <p>BECOME a FARMER</p>
                             <h2><span>Start an</span> Apprenticeship Program</h2>
-                            <img src="img/core-img/decor.png" alt="">
+                            <img src="{% static 'img/core-img/decor.png' %}" alt="">
                         </div>
                         <!-- Contact Form Area -->
                         <div class="contact-form-area">
@@ -343,7 +343,7 @@
                 <!-- Contact Maps -->
                 <div class="col-lg-5">
                     <div class="consaltant-thumbnail text-center">
-                        <img src="img/bg-img/25.png" alt="">
+                        <img src="{% static 'img/bg-img/25.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -351,3 +351,4 @@
     </section>
     <!-- ##### Contact Area End ##### -->
 
+{% endblock content %}
