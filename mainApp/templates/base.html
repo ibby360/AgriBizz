@@ -30,8 +30,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="top-header-content d-flex align-items-center justify-content-between"> 
-        <!-- Top Header Content -->
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
                             <div class="top-header-meta">
                                 <p>Welcome to <span>AgriBizz</span>, we hope you will enjoy our products and have good experience</p>
                             </div>
@@ -53,42 +53,46 @@
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="famieNav">
                         <!-- Nav Brand -->
-                        <a href="index.html" class ="nav-brand"><h5>Agri<span>Bizz</span></h5></a>
-                        {% comment %} < href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt=""></> {% endcomment %}
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        <a href="index.html" class="nav-brand">
+                            <h5>Agri<span>Bizz</span></h5>
+                        </a>
+                        {% comment %}
+                        < href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt="">
+                            </> {% endcomment %}
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
                             </div>
-                            <!-- Navbar Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="our-product.html">Our Product</a></li>
-                                    <li><a href="farming_practice.html">Farming Practice</a></li>
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                                <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="icon_search" aria-hidden="true"></i>
+                            <!-- Menu -->
+                            <div class="classy-menu">
+                                <!-- Close Button -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                                 </div>
-                                <!-- Cart Icon -->
-                                <div id="cartIcon">
-                                    <a href="#">
-                                        <i class="icon_cart_alt" aria-hidden="true"></i>
-                                        <span class="cart-quantity">2</span>
-                                    </a>
+                                <!-- Navbar Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="our-product.html">Our Product</a></li>
+                                        <li><a href="farming_practice.html">Farming Practice</a></li>
+                                        <li><a href="news.html">News</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                    <!-- Search Icon -->
+                                    <div id="searchIcon">
+                                        <i class="icon_search" aria-hidden="true"></i>
+                                    </div>
+                                    <!-- Cart Icon -->
+                                    <div id="cartIcon">
+                                        <a href="#">
+                                            <i class="icon_cart_alt" aria-hidden="true"></i>
+                                            <span class="cart-quantity">2</span>
+                                        </a>
+                                    </div>
                                 </div>
+                                <!-- Navbar End -->
                             </div>
-                            <!-- Navbar End -->
-                        </div>
                     </nav>
 
                     <!-- Search Form -->
@@ -106,7 +110,7 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-{% block content %}
+{% block content %} 
 {% endblock %}
 
     <!-- ##### Footer Area Start ##### -->
@@ -270,4 +274,5 @@
     <!-- Active js -->
     <script src="{% static 'js/active.js' %}"></script>
 </body>
+
 </html>
