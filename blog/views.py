@@ -5,5 +5,5 @@ from django.shortcuts import render
 def farming_practice(request):
     return render(request, 'farming_practice.html', {})
 
-def practice_detais(request):
+def practice_details(request):
     return render (request, 'practice_details.html', {})
