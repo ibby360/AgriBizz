@@ -1,6 +1,7 @@
 # Project Name: AgriBusiness Information System.
 
-## General Info
+# Requirements
+
 
 ## Setup
 ### How to setup project
