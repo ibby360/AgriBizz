@@ -1,8 +1,6 @@
-# AgriBizz
+# Project Name: AgriBusiness Information System.
 
-## General In
-
-## Technologies
+## General Info
 
 ## Setup
 ### How to setup project
