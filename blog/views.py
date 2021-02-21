@@ -5,7 +5,8 @@ from blog.models import BlogPost
 
 
 def farming_practice(request):
-    return render(request, 'farming_practice.html', {})
+    posts = BlogPost.objects.all()
+    return render(request, 'farming_practice.html', {'posts':posts})
 
 
 def practice_details(request):

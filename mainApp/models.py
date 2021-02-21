@@ -28,7 +28,7 @@ class Product(models.Model):
     def imageURL(self):
         try:
             url = self.image.url
-        except FileNotFoundError:
+        except ValueError:
             url = ''
         return url
 
