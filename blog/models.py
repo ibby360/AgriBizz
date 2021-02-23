@@ -18,7 +18,13 @@ def upload_location(instance, filename):
     return file_path
 
 # Post model
-
+class Author(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.ImageField()
+    
+    def __str__(self):
+        return self.user.username
+    
 
 class BlogPost (models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
@@ -26,7 +32,7 @@ class BlogPost (models.Model):
     slug = models.SlugField(max_length=100, null=True, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
-    image = models.ImageField(upload_to=upload_location, null=True, blank=True)
+    thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     icon = ImageField(upload_to=upload_location, null=True, blank=True)
     body = models.TextField(null=False, blank=False)
     publish = models.DateTimeField(default=timezone.now)
@@ -36,6 +42,7 @@ class BlogPost (models.Model):
         auto_now=True, verbose_name="date_updated")
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICE, default='draft')
+    featured = models.BooleanField()
 
     class Meta:
         ordering = ('-publish',)

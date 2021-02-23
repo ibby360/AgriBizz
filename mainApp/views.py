@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import mainApp.models as app_model
+from blog.models import BlogPost
 from django.views import generic
 
 
@@ -8,4 +9,8 @@ from django.views import generic
 
 
 def index(request):
-    return render(request, 'index.html', {})
+    practice_post = BlogPost.objects.filter(featured=True)
+    context = {
+        'object_list': practice_post
+    }
+    return render(request, 'index.html', context)

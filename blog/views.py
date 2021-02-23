@@ -5,8 +5,11 @@ from blog.models import BlogPost
 
 
 def farming_practice(request):
-    posts = BlogPost.objects.all()
-    return render(request, 'farming_practice.html', {'posts':posts})
+    queryset = BlogPost.objects.all()
+    context = {
+        'object_list': queryset
+    }
+    return render(request, 'farming_practice.html', context)
 
 
 def practice_details(request):
