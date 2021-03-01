@@ -1,4 +1,4 @@
 from django.contrib import admin
-import mainApp.models as app_model
-
+from mainApp.models import Newsletter
 # Register your models here.
+admin.site.register(Newsletter)
