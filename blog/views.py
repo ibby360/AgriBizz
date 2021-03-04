@@ -12,5 +12,9 @@ def farming_practice(request):
     return render(request, 'farming_practice.html', context)
 
 
-def practice_details(request):
-    return render(request, 'practice_details.html', {})
+def practice_details(request,):
+    # post = BlogPost.objects.get(pk=pk)
+    # context = {
+    #     'post' :post
+    # }
+    return render(request, 'practice_details.html',)
