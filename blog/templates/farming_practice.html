@@ -74,7 +74,7 @@
             <div class="row">
 
                 <!-- Single Farming Practice Area -->
-                {% for obj in object_list %}
+                {% for obj in queryset %}
 
                 <div class="col-12 col-sm-6 col-lg-4">
 
@@ -92,7 +92,7 @@
                             </div>
                             <span>Farming practice for</span>
                             <a href="practice_details.html"><h4>{{obj.title}}</h4></a>
-                            <p>{{obj.body | slice:":100"}}...</p>
+                            <p>{{obj.overview }}</p>
                         </div>
 
                     </div>
@@ -101,12 +101,16 @@
 
 
             </div>
-                      <!-- pagination -->
+        <!-- pagination -->
           <nav>
             <ul class="pagination wow fadeInUp" data-wow-delay="900ms">
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+              {% if queryset.has_previous %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.privious_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+              {% endif %}
+              <li class="page-item active"><a class="page-link" href="?{{ page_request_var }}={{ queryset.number }}">{{ queryset.number}}</a></li>
+              {% if queryset.has_next %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+              {% endif %}
             </ul>
           </nav>
         </div>

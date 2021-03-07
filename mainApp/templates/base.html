@@ -37,8 +37,8 @@
                             </div>
                             <!-- Top Header Content -->
                             <div class="top-header-meta text-right">
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="ibbypapi@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: ibbypapi@gmail.com</span></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+255 748 020 076"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +255 748 020 076</span></a>
+                                <a href="mailto:ibbypapi@gmail.com"  data-toggle="tooltip" data-placement="bottom" title="ibbypapi@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: ibbypapi@gmail.com</span></a>
+                                <a href="tel:+255748020076" data-toggle="tooltip" data-placement="bottom" title="+255 748 020 076"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +255 748 020 076</span></a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                     <ul>
                                         <li class="active"><a href="/">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="our-product.html">Our Product</a></li>
+                                        {% comment %} <li><a href="our-product.html">Our Product</a></li> {% endcomment %}
                                         <li><a href="farming_practice.html">Farming Practice</a></li>
                                         <li><a href="news.html">News</a></li>
                                         <li><a href="contact.html">Contact</a></li>
@@ -84,12 +84,12 @@
                                         <i class="icon_search" aria-hidden="true"></i>
                                     </div>
                                     <!-- Cart Icon -->
-                                    <div id="cartIcon">
+                                    {% comment %} <div id="cartIcon">
                                         <a href="#">
                                             <i class="icon_cart_alt" aria-hidden="true"></i>
                                             <span class="cart-quantity">2</span>
                                         </a>
-                                    </div>
+                                    </div> {% endcomment %}
                                 </div>
                                 <!-- Navbar End -->
                             </div>
@@ -126,9 +126,9 @@
                             <a href="#" class="foo-logo d-block mb-30"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
                             <p>Lorem ipsum dolor sit amet, consecte stare adipiscing elit. In act honcus risus atiner Pellentesque risus.</p>
                             <div class="contact-info">
-                                <p><i class="fa fa-map-pin" aria-hidden="true"></i><span>120 Raymond Rd, New York</span></p>
-                                <p><i class="fa fa-envelope" aria-hidden="true"></i><span>info.deercreative@gmail.com</span></p>
-                                <p><i class="fa fa-phone" aria-hidden="true"></i><span>+84 223 9000</span></p>
+                                <p><i class="fa fa-map-pin" aria-hidden="true"></i><span>Dar Es Salaam, Tanzania</span></p>
+                                <p><i class="fa fa-envelope" aria-hidden="true"></i><span>ibbypapi@gmail.com</span></p>
+                                <p><i class="fa fa-phone" aria-hidden="true"></i><span>+255 748 020 076</span></p>
                             </div>
                         </div>
                     </div>
@@ -192,17 +192,17 @@
                             <h5 class="widget-title">STAY CONNECTED</h5>
                             <!-- Footer Social Info -->
                             <div class="footer-social-info">
-                                <a href="#">
+                                <a href="https://www.facebook.com/" target="_blank">
                                     <i class="fa fa-facebook" aria-hidden="true"></i>
                                     <span>Facebook</span>
                                 </a>
-                                <a href="#">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    <span>Twitter</span>
+                                <a href="https://www.instagram.com/" target="_blank">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <span>Instagram</span>
                                 </a>
-                                <a href="#">
-                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                    <span>Pinterest</span>
+                                <a href="https://api.whatsapp.com/send?phone=255723756395" target="_blank">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                    <span>WhatsApp</span>
                                 </a>
                             </div>
                         </div>
@@ -232,9 +232,7 @@
                                 <nav>
                                     <ul>
                                         <li><a href="#">About</a></li>
-                                        <li><a href="#">Produce</a></li>
-                                        <li><a href="#">Practice</a></li>
-                                        <li><a href="#">Products</a></li>
+                                        <li><a href="{% url 'farming_practice' %}">Practice</a></li>
                                         <li><a href="#">News</a></li>
                                         <li><a href="#">Contact</a></li>
                                     </ul>

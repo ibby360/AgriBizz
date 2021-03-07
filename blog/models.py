@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from tinymce.models import HTMLField
 from django.db.models.fields.files import ImageField
 
 from django.db.models.signals import post_delete, pre_save
@@ -29,12 +31,13 @@ class Author(models.Model):
 class BlogPost (models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
     title = models.CharField(max_length=200,)
+    overview = models.CharField(max_length=150, null=True)
     slug = models.SlugField(max_length=100, null=True, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='blog_posts')
     thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     icon = ImageField(upload_to=upload_location, null=True, blank=True)
-    body = models.TextField(null=False, blank=False)
+    content = HTMLField()
     publish = models.DateTimeField(default=timezone.now)
     date_created = models.DateTimeField(
         auto_now_add=True, verbose_name="date_published")
@@ -49,3 +52,7 @@ class BlogPost (models.Model):
 
     def __str__(self):
         return self.title
+
+    # def get_absolute_url(self):
+    #     return reverse("practice_detail", kwargs={"pk": self.id})
+    
