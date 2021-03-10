@@ -329,11 +329,12 @@
                 <div class="newsletter-content">
                     <!-- Section Heading -->
                     <div class="section-heading white text-center">
-                        <p>What we do</p>
-                        <h2><span>Our Produce</span> Is Mainstay For Us</h2>
+                        <p>Never Miss a Post</p>
+                        <h2><span>Subscribe </span>to keep your fingers on the agriculture pulse.</h2>
                         <img src="{% static 'img/core-img/decor2.png' %}" alt="">
                     </div>
-                    <p class="text-white mb-50 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at diam convallis ligula cursus bibendum sed at enim. Class aptent taciti sociosqu ad litora torquent conubia nostra, per inceptos himenaeos.
+                    <p class="text-white mb-50 text-center">
+                        By submitting this form, you are agreeing to receive e-mails from us.
                     </p>
                 </div>
             </div>
@@ -387,7 +388,7 @@
                             </div>
                             <span>Farming practice for</span>
                             <a href="practice_details.html"><h4>{{obj.title}}</h4></a>
-                            <p>{{obj.body | slice:":100"}}...</p>
+                            <p>{{obj.overview}}</p>
                         </div>
 
                     </div>

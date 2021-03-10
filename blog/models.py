@@ -27,14 +27,14 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
     
-
+# Models for farming practices
 class BlogPost (models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=200,)
     overview = models.CharField(max_length=150, null=True)
     slug = models.SlugField(max_length=100, null=True, unique=True)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='blog_posts')
     thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     icon = ImageField(upload_to=upload_location, null=True, blank=True)
     content = HTMLField()
@@ -49,6 +49,32 @@ class BlogPost (models.Model):
 
     class Meta:
         ordering = ('-publish',)
+
+    def __str__(self):
+        return self.title
+
+# Models for the news
+def img_location(instance, filename):
+    file_path = 'blog/news_img{author_id}/{title}-{filename}'.format(
+        author_id=str(instance.author.id), title=str(instance.title), filename=filename
+    )
+    return file_path
+
+class News(models.Model):
+    STATUS = (('draft', 'Draft'), ('published', 'Published'))
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_post')
+    title = models.CharField(max_length=200)
+    overview = models.CharField(max_length=150)
+    slug = models.CharField(max_length=150, null=True, unique=True)
+    thumbnail = models.ImageField(upload_to=img_location, null=True, blank=True)
+    content = HTMLField()
+    date_created = models.DateTimeField(verbose_name='date-published',auto_now_add=True)
+    publish_date =models.DateTimeField(default=timezone.now)
+    news_status = models.CharField(max_length=10, choices=STATUS, default='draft')
+    featured_news = models.BooleanField()
+
+    class Meta:
+        ordering = ('-publish_date',)
 
     def __str__(self):
         return self.title
