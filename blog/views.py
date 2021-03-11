@@ -36,7 +36,7 @@ def practice_details(request,):
 # View for the news page
 def news_view (request):
     news_list = News.objects.all()
-    pratice_post = BlogPost.objects.filter(featured=True)
+    pratice_post = BlogPost.objects.filter(featured=True)[:4]
     paginator = Paginator(news_list, 3)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
