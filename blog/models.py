@@ -31,7 +31,7 @@ class Author(models.Model):
 class BlogPost (models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='blog_posts')
+        Author, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=200,)
     overview = models.CharField(max_length=150, null=True)
     slug = models.SlugField(max_length=100, null=True, unique=True)
@@ -62,10 +62,11 @@ def img_location(instance, filename):
 
 class News(models.Model):
     STATUS = (('draft', 'Draft'), ('published', 'Published'))
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_post')
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='blog_post')
     title = models.CharField(max_length=200)
-    overview = models.CharField(max_length=150)
+    overview = models.CharField(max_length=140)
     slug = models.CharField(max_length=150, null=True, unique=True)
+    featured_thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     thumbnail = models.ImageField(upload_to=img_location, null=True, blank=True)
     content = HTMLField()
     date_created = models.DateTimeField(verbose_name='date-published',auto_now_add=True)

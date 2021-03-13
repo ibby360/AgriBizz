@@ -26,8 +26,8 @@ def farming_practice(request):
     return render(request, 'farming_practice.html', context)
 
 # View for the practice details page
-def practice_details(request,):
-    post = BlogPost.objects.get(id = 2)
+def practice_details(request, ):
+    post = BlogPost.objects.get(pk = 2)
     context = {
         'post': post,
     }
@@ -36,7 +36,7 @@ def practice_details(request,):
 # View for the news page
 def news_view (request):
     news_list = News.objects.all()
-    pratice_post = BlogPost.objects.filter(featured=True)[:4]
+    latest_pratice_post = BlogPost.objects.order_by('-date_created')[:4]
     paginator = Paginator(news_list, 3)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
@@ -49,6 +49,6 @@ def news_view (request):
     context = {
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
-        'object_list':pratice_post
+        'object_list':latest_pratice_post
     }
     return render(request, "news.html", context) 

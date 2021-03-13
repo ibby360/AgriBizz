@@ -408,52 +408,36 @@
 <section class="news-area bg-gray section-padding-100-0">
     <div class="container">
         <div class="row">
+            {% for news in featured_news %}
 
             <!-- Featured Post Area -->
             <div class="col-12 col-lg-6">
                 <div class="featured-post-area mb-100 wow fadeInUp" data-wow-delay="100ms">
-                    <img src="{% static 'img/bg-img/17.jpg' %}" alt="">
+                    <img src="{{ news.featured_thumbnail.url }}" alt="">
                     <!-- Post Content -->
                     <div class="post-content">
-                        <h6>Post on <a href="#">18 Aug 2018</a> / <a href="#">Carlos Bacca</a></h6>
-                        <a href="#" class="post-title">Why innovation is key to maintaining our export market share</a>
+                        <h6>Post on <a href="#">{{ news.date_created | timesince }} Ago</a> | <a href="#">{{ news.author.user.username }}</a></h6>
+                        <a href="#" class="post-title">{{ news.title }}</a>
                     </div>
                 </div>
+            {% endfor %}
+
             </div>
 
             <!-- Single Blog Area -->
             <div class="col-12 col-lg-6 mb-100">
 
+                {% for list in news_list %}
                 <!-- Single Blog Area -->
                 <div class="single-blog-area style-2 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Post Content -->
                     <div class="post-content">
-                        <h6>Post on <a href="#">18 Aug 2018</a> / <a href="#">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Rising cattle supplies see beef export lifted</a>
-                        <p>Maecenas facilisis quam orcit, velo porttitor arcu egestas eu. Maecenas donald imperdiet nibh, quis. Etiam non scelerisque exited sagittis...</p>
+                        <h6>Post on <a href="#">{{ list.date_created | timesince }} Ago</a> | <a href="#">{{ list.author.user.username }}</a></h6>
+                        <a href="#" class="post-title">{{ list.title }}</a>
+                        <p>{{ list.overview }}</p>
                     </div>
                 </div>
-
-                <!-- Single Blog Area -->
-                <div class="single-blog-area style-2 wow fadeInUp" data-wow-delay="500ms">
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <h6>Post on <a href="#">18 Aug 2018</a> / <a href="#">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Cattle marts: Cows take a hit at the ringside</a>
-                        <p>Maecenas facilisis quam orcit, velo porttitor arcu egestas eu. Maecenas donald imperdiet nibh, quis. Etiam non scelerisque exited sagittis...</p>
-                    </div>
-                </div>
-
-                <!-- Single Blog Area -->
-                <div class="single-blog-area style-2 wow fadeInUp" data-wow-delay="700ms">
-                    <!-- Post Content -->
-                    <div class="post-content">
-                        <h6>Post on <a href="#">18 Aug 2018</a> / <a href="#">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Malting barley price set to commence</a>
-                        <p>Maecenas facilisis quam orcit, velo porttitor arcu egestas eu. Maecenas donald imperdiet nibh, quis. Etiam non scelerisque exited sagittis...</p>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
         </div>
     </div>

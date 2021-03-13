@@ -36,7 +36,7 @@
 
             <!-- Single Blog Post Area -->
             <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="100ms">
-              <h6>Post on <a href="#" class="post-date">{{ obj.date_created | timesince }}</a> / <a href="#" class="post-author">{{ obj.author }}</a></h6>
+              <h6>Post on <a href="#" class="post-date">{{ obj.date_created | timesince }}</a> ago | <a href="#" class="post-author">{{ obj.author }}</a></h6>
               <a href="#" class="post-title">{{ obj.title }}</a>
               <img src="{{ obj.thumbnail.url }}" alt="" class="post-thumb">
               <p class="post-excerpt">
@@ -67,7 +67,7 @@
             <!-- Single Widget Area -->
             <div class="single-widget-area">
               <!-- Title -->
-              <h5 class="widget-title">Recent News</h5>
+              <h5 class="widget-title">Farming Practice</h5>
               {% for obj in object_list %}
 
 
@@ -78,7 +78,7 @@
                   <img src="{{ obj.thumbnail.url}}" alt="">
                 </div>
                 <div class="post-content">
-                  <a href="#" class="post-title">{{ obj.title }}</a>
+                  <a href="{% url 'practice_details' %}" class="post-title">{{ obj.title }}</a>
                   <div class="post-date">{{ obj.date_created }}</div>
                 </div>
               </div>
