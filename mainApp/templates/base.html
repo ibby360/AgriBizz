@@ -12,7 +12,7 @@
     <!-- Title -->
     <title>AgriBizz - Farm Services &amp; Organic Food Store | Home</title>
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+    <link rel="icon" href="{% static 'img/core-img/favicon2.ico' %}">
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
@@ -53,12 +53,8 @@
                     <!-- Menu -->
                     <nav class="classy-navbar justify-content-between" id="famieNav">
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand">
-                            <h5>Agri<span>Bizz</span></h5>
-                        </a>
-                        {% comment %}
-                        < href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt="">
-                            </> {% endcomment %}
+                        <a href="index.html" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt="">
+                            </a> 
                             <!-- Navbar Toggler -->
                             <div class="classy-navbar-toggler">
                                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -123,7 +119,6 @@
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="footer-widget mb-80">
-                            <a href="#" class="foo-logo d-block mb-30"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
                             <p>Lorem ipsum dolor sit amet, consecte stare adipiscing elit. In act honcus risus atiner Pellentesque risus.</p>
                             <div class="contact-info">
                                 <p><i class="fa fa-map-pin" aria-hidden="true"></i><span>Dar Es Salaam, Tanzania</span></p>
@@ -233,8 +228,8 @@
                                     <ul>
                                         <li><a href="#">About</a></li>
                                         <li><a href="{% url 'farming_practice' %}">Practice</a></li>
-                                        <li><a href="#">News</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="news.html">News</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>

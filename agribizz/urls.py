@@ -15,6 +15,7 @@ urlpatterns = [
     # path('farming_practice/', farming_practice),
     path('', views.index, name='index'),
     path('blog/practice_details/<int:post_pk>', practice_details, name='practice_details'),
-    path('', news_view, name='news')
+    path('', news_view, name='news'),
+    path('', views.contact, name='contact')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
