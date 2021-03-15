@@ -1,5 +1,6 @@
 from django.core import paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models.fields import SlugField
 from django.db.models.query_utils import PathInfo
 from django.http.response import Http404
 from django.shortcuts import get_object_or_404, render
@@ -27,7 +28,7 @@ def farming_practice(request):
 
 # View for the practice details page
 def practice_details(request, ):
-    post = BlogPost.objects.get(pk = 2)
+    post = BlogPost.objects.get(id = 3)
     context = {
         'post': post,
     }

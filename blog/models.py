@@ -34,7 +34,7 @@ class BlogPost (models.Model):
         Author, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=200,)
     overview = models.CharField(max_length=150, null=True)
-    slug = models.SlugField(max_length=100, null=True, unique=True)
+    slug = models.SlugField(null=True, unique=True)
     thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     icon = ImageField(upload_to=upload_location, null=True, blank=True)
     content = HTMLField()
@@ -46,6 +46,10 @@ class BlogPost (models.Model):
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICE, default='draft')
     featured = models.BooleanField()
+
+    def save(self, *args, **kwargs):
+        self.slug = self.slug or slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ('-publish',)

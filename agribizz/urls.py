@@ -14,7 +14,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     # path('farming_practice/', farming_practice),
     path('', views.index, name='index'),
-    path('blog/practice_details/<int:post_pk>', practice_details, name='practice_details'),
+    path('blog/practice_details/', practice_details, name='practice_details'),
     path('', news_view, name='news'),
     path('', views.contact, name='contact')
 ]
