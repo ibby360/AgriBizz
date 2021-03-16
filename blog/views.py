@@ -1,9 +1,9 @@
 from django.core import paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db.models.fields import SlugField
-from django.db.models.query_utils import PathInfo
-from django.http.response import Http404
-from django.shortcuts import get_object_or_404, render
+# from django.db.models.fields import SlugField
+# from django.db.models.query_utils import PathInfo
+# from django.http.response import Http404
+from django.shortcuts import render
 from blog.models import BlogPost, News
 
 # Create your views here.
@@ -27,8 +27,8 @@ def farming_practice(request):
     return render(request, 'farming_practice.html', context)
 
 # View for the practice details page
-def practice_details(request, ):
-    post = BlogPost.objects.get(id = 3)
+def practice_details(request, slug):
+    post = BlogPost.objects.get(slug = slug)
     context = {
         'post': post,
     }
