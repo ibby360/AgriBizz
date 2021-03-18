@@ -57,6 +57,10 @@ class BlogPost (models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("blog:'practice_details", kwargs={"pk": self.id})
+
+
 # Models for the news
 def img_location(instance, filename):
     file_path = 'blog/news_img{author_id}/{title}-{filename}'.format(
@@ -84,6 +88,4 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
-    # def get_absolute_url(self):
-    #     return reverse("practice_detail", kwargs={"pk": self.id})
     

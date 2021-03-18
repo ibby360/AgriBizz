@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from mainApp.models import Newsletter
 from blog.models import BlogPost, News
-from django.views import generic
+
+
 
 
 

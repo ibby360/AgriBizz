@@ -27,8 +27,8 @@ def farming_practice(request):
     return render(request, 'farming_practice.html', context)
 
 # View for the practice details page
-def practice_details(request, slug):
-    post = BlogPost.objects.get(slug = slug)
+def practice_details(request, id):
+    post = BlogPost.objects.get(pk = id)
     context = {
         'post': post,
     }
@@ -51,5 +51,6 @@ def news_view (request):
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
         'object_list':latest_pratice_post
+
     }
     return render(request, "news.html", context) 
