@@ -27,8 +27,8 @@ def farming_practice(request):
     return render(request, 'farming_practice.html', context)
 
 # View for the practice details page
-def practice_details(request, id):
-    post = BlogPost.objects.get(pk = id)
+def practice_details(request, slug):
+    post = BlogPost.objects.get(slug = slug)
     context = {
         'post': post,
     }
