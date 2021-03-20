@@ -13,10 +13,10 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
 
     path('', views.index, name='index'),
-    path('', farming_practice, name='farming_practice'),
-    path('<int:pk>/', practice_details, name='practice_details'),
-    path('', news_view, name='news'),
-    path('', views.contact, name="contact")
+    path('farmimng_practice.html', farming_practice, name='farming_practice'),
+    path('detail/<slug:slug>', practice_details, name='practice_details'),
+    path('contact.html', views.contact, name="contact-view"),
+    path('news.html', news_view, name='news-view'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

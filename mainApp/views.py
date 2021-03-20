@@ -2,10 +2,6 @@ from django.shortcuts import render
 from mainApp.models import Newsletter
 from blog.models import BlogPost, News
 
-
-
-
-
 # Create your views here.
 
 
