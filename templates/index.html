@@ -387,7 +387,7 @@
                                 <img src="{{obj.icon.url}}" alt="">
                             </div>
                             <span>Farming practice for</span>
-                            <a href="practice_details.html"><h4>{{obj.title}}</h4></a>
+                            <a href="{% url 'practice_details' obj.slug %}"><h4>{{obj.title}}</h4></a>
                             <p>{{obj.overview}}</p>
                         </div>
 
