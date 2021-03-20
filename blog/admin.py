@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import BlogPost, Author, News
+from blog.models import BlogPost, Author, News, Comment
 
 # Register your models here.
 admin.site.register(Author)
@@ -12,7 +12,16 @@ class PostAdmin(admin.ModelAdmin):
     raw_id_field = ('author')
     date_hierarchy = 'publish'
     ordering = ('status', 'publish')
+    
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'body', 'post', 'created_on', 'active')
+    list_filter = ('active', 'created_on')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
 
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)
 
 @admin.register(News)
 class PostAdmin(admin.ModelAdmin):
