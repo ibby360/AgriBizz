@@ -57,8 +57,8 @@ class BlogPost (models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse("blog:'practice_details", kwargs={"pk": self.id})
+    # def get_absolute_url(self):
+    #     return reverse("practice_details", kwargs={"pk": self.id})
 
 
 # Models for the news
