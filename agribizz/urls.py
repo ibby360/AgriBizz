@@ -1,3 +1,4 @@
+from blog.views import farming_practice, news_view, practice_details
 from django import urls
 from django.contrib import admin
 from django.urls import path, include

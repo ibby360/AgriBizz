@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from mainApp.models import Newsletter
 from blog.models import BlogPost, News
+from blog.views import practice_details
 
 # Create your views here.
 
@@ -19,7 +20,7 @@ def index(request):
     context = {
         'object_list': practice_post,
         'featured_news': news_post,
-        'news_list': list_news
+        'news_list': list_news,
     }
     return render(request, 'index.html', context)
 
