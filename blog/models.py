@@ -60,14 +60,29 @@ class BlogPost (models.Model):
     # def get_absolute_url(self):
     #     return reverse("practice_details", kwargs={"pk": self.id})
 
+# Comment model
+class Comment(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
 
-# Models for the news
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.body, self.name)
+
+# News Media Location Model 
 def img_location(instance, filename):
     file_path = 'blog/news_img{author_id}/{title}-{filename}'.format(
         author_id=str(instance.author.id), title=str(instance.title), filename=filename
     )
     return file_path
 
+# News Model
 class News(models.Model):
     STATUS = (('draft', 'Draft'), ('published', 'Published'))
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='blog_post')
