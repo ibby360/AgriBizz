@@ -18,6 +18,7 @@ urlpatterns = [
     path('detail/<slug:slug>', practice_details, name='practice_details'),
     path('contact.html', views.contact, name="contact-view"),
     path('news.html', news_view, name='news-view'),
+    path('thank_you.html', views.thank_you, name='thanks-page')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
