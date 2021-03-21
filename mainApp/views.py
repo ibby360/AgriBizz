@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.core.checks import messages
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from mainApp.models import Newsletter, Contact
 from blog.models import BlogPost, News
@@ -26,6 +27,11 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
+
+def thank_you(request):
+    return render(request, 'thank_you.html', )
+
+    
 def contact(request):
     if request.method == 'POST':
         contact = Contact()
@@ -39,7 +45,9 @@ def contact(request):
         contact.subject = subject
         contact.message = message
         contact.save()
-        return HttpResponse('<h1> THANKS FOR CONTACT US </H1>')
+        return HttpResponseRedirect('thank_you.html')
         
 
     return render(request, 'contact.html',)
+
+
