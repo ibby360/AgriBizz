@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.db.models.query_utils import PathInfo
 # from django.http.response import Http404
 from django.shortcuts import render
-from blog.models import BlogPost, News
+from blog.models import BlogPost, News, PracticeIntro
 
 # Create your views here.
 
@@ -13,6 +13,7 @@ from blog.models import BlogPost, News
 
 def farming_practice(request):
     post_list = BlogPost.objects.all()
+    introduction = PracticeIntro.objects.all()
     paginator = Paginator(post_list, 6)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
@@ -25,6 +26,7 @@ def farming_practice(request):
     context = {
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
+        'introduction': introduction,
     }
     return render(request, 'farming_practice.html', context)
 
@@ -60,3 +62,6 @@ def news_view(request):
 
     }
     return render(request, "news.html", context)
+
+def practice_intro(request):
+    return render(request, 'practice_intro.html',)
