@@ -70,7 +70,6 @@
                                     <ul>
                                         <li class="active"><a href="/">Home</a></li>
                                         <li><a href="#about">About</a></li>
-                                        {% comment %} <li><a href="our-product.html">Our Product</a></li> {% endcomment %}
                                         <li><a href="{% url 'farming_practice' %}">Farming Practice</a></li>
                                         <li><a href="{% url 'news-view' %}">News</a></li>
                                         <li><a href="{% url 'contact-view' %}">Contact</a></li>
@@ -79,13 +78,6 @@
                                     <div id="searchIcon">
                                         <i class="icon_search" aria-hidden="true"></i>
                                     </div>
-                                    <!-- Cart Icon -->
-                                    {% comment %} <div id="cartIcon">
-                                        <a href="#">
-                                            <i class="icon_cart_alt" aria-hidden="true"></i>
-                                            <span class="cart-quantity">2</span>
-                                        </a>
-                                    </div> {% endcomment %}
                                 </div>
                                 <!-- Navbar End -->
                             </div>
@@ -127,29 +119,6 @@
                             </div>
                         </div>
                     </div>
-
-                    {% comment %} <!-- Single Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget mb-80">
-                            <h5 class="widget-title">QUICK LINK</h5>
-                            <!-- Footer Widget Nav -->
-                            <nav class="footer-widget-nav">
-                                <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Our Product</a></li>
-                                    <li><a href="#">Farming Practices</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <!-- <li><a href="#">Payments</a></li>
-                                        <li><a href="#">Partners</a></li>
-                                        <li><a href="#">Guide</a></li>
-                                        <li><a href="#">Standard</a></li>
-                                        <li><a href="#">News</a></li> -->
-                                </ul>
-                            </nav>
-                        </div>
-                    </div> {% endcomment %}
 
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
@@ -228,8 +197,8 @@
                                     <ul>
                                         <li><a href="#">About</a></li>
                                         <li><a href="{% url 'farming_practice' %}">Practice</a></li>
-                                        <li><a href="news.html">News</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{% url 'news-view' %}">News</a></li>
+                                        <li><a href="{% url 'contact-view' %}">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
