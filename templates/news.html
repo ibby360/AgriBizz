@@ -78,7 +78,7 @@
                   <img src="{{ obj.thumbnail.url}}" alt="">
                 </div>
                 <div class="post-content">
-                  <a href="{% url 'practice_details' %}" class="post-title">{{ obj.title }}</a>
+                  <a href="{% url 'practice_details' obj.slug %}" class="post-title">{{ obj.title }}</a>
                   <div class="post-date">{{ obj.date_created }}</div>
                 </div>
               </div>
