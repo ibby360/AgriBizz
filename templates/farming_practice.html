@@ -32,8 +32,9 @@
 
                 <!-- About Us Thumbnail -->
                 <div class="col-12 col-lg-6">
+                    {% for intro in introduction %}
                     <div class="about-us-thumbnail mb-100">
-                        <img src="{% static 'img/bg-img/24.jpg' %}" alt="">
+                        <img src="{{ intro.image.url }}" alt="">
                     </div>
                 </div>
 
@@ -46,10 +47,10 @@
                             <h2><span>Farming Practices</span> &amp; Methods</h2>
                             <img src="{% static 'img/core-img/decor.png' %}" alt="">
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetu adipiscing elit. Etiam nunc elit, pretium atlanta urna veloci, fermentum malesuda mina. Donec auctor nislec neque sagittis, sit amet dapibus pellentesque donal feugiat. Nulla mollis magna
-                            non sanaliquet, volutpat do zutum, ultrices consectetur, ultrices at purus.</p>
+                        <p>{{ intro.overview }}</p>
                         <a href="#" class="btn famie-btn mt-30">Read More</a>
                     </div>
+                    {% endfor %}
                 </div>
 
             </div>
