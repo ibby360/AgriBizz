@@ -20,15 +20,15 @@
   <section class="news-details-area section-padding-0-100">
     <div class="container">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-50">
           <!-- News Details Content -->
-          <div class="news-details-content">
+          <div class="news-details-content text-center">
             <h6>Post on <a href="#" class="post-date">{{ post.date_created | timesince }}</a> Ago <a href="#" class="post-author">| {{ post.author }}</a></h6>
             <h2 class="post-title">{{ post.title }}</h2>
             <div class="benefits-thumbnail mb-50">
                     <img src="{{ post.thumbnail.url}}" alt="">
                 </div>
-              <div>
+              <div >
                 {{ post.content | safe }}
               </div>  
 
