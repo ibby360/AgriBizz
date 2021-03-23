@@ -43,7 +43,7 @@
 <!-- ##### Hero Area End ##### -->
 
 <!-- ##### Famie Benefits Area Start ##### -->
-<section class="famie-benefits-area section-padding-100-0 pb-5">
+<section class="famie-benefits-area section-padding-100-0 pb-5 " id="about">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -108,7 +108,7 @@
                 <div class="about-us-content mb-100">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                        <p id="about">About us</p>
+                        <p>About us</p>
                         <h2><span>Let Us</span> Tell You Our Story</h2>
                         <img src="{% static 'img/core-img/decor.png' %}" alt="">
                     </div>
@@ -321,37 +321,7 @@
 </section>
 <!-- ##### Our Products Area End ##### -->
 
-<!-- ##### Newsletter Area Start ##### -->
-<section class="newsletter-area section-padding-100 bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/8.jpg' %});">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <div class="newsletter-content">
-                    <!-- Section Heading -->
-                    <div class="section-heading white text-center">
-                        <p>Never Miss a Post</p>
-                        <h2><span>Subscribe </span>to keep your fingers on the agriculture pulse.</h2>
-                        <img src="{% static 'img/core-img/decor2.png' %}" alt="">
-                    </div>
-                    <p class="text-white mb-50 text-center">
-                        By submitting this form, you are agreeing to receive e-mails from us.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Form -->
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-6">
-                <form action="." method="POST">
-                {% csrf_token %}
-                    <input type="email" name="email" id="email "class="form-control" placeholder="Enter your email">
-                    <button type="submit" class="btn famie-btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ##### Newsletter Area End ##### -->
+
 
 <!-- ##### Farming Practice Area Start ##### -->
 <section class="farming-practice-area section-padding-100-50">
@@ -398,7 +368,7 @@
 
             </div>
                 <div class="gotoshop-btn text-center wow fadeInUp" data-wow-delay="900ms">
-                    <a href="farming_practice.html" class="btn famie-btn">View More</a>
+                    <a href="{% url 'farming_practice' %}" class="btn famie-btn">View More</a>
                 </div>
         </div>
     </section>
@@ -444,6 +414,36 @@
 </section>
 <!-- ##### News Area End ##### -->
 
-
+<!-- ##### Newsletter Area Start ##### -->
+<section class="newsletter-area section-padding-100 bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/8.jpg' %});">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="newsletter-content">
+                    <!-- Section Heading -->
+                    <div class="section-heading white text-center">
+                        <p>Never Miss a Post</p>
+                        <h2><span>Subscribe </span>to keep your fingers on the agriculture pulse.</h2>
+                        <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+                    </div>
+                    <p class="text-white mb-50 text-center">
+                        By submitting this form, you are agreeing to receive e-mails from us.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter Form -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6">
+                <form action="." method="POST">
+                {% csrf_token %}
+                    <input type="email" name="email" id="email "class="form-control" placeholder="Enter your email">
+                    <button type="submit" class="btn famie-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Newsletter Area End ##### -->
 
 {% endblock %}
