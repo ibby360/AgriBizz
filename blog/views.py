@@ -63,5 +63,7 @@ def news_view(request):
     }
     return render(request, "news.html", context)
 
-def practice_intro(request):
-    return render(request, 'practice_intro.html',)
+def practice_intro(request,):
+    intro_page = PracticeIntro.objects.get(pk = 1)
+    context = {'intro_page': intro_page}
+    return render(request, 'practice_intro.html', context)
