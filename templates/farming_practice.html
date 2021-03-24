@@ -48,7 +48,7 @@
                             <img src="{% static 'img/core-img/decor.png' %}" alt="">
                         </div>
                         <p>{{ intro.overview }}</p>
-                        <a href="#" class="btn famie-btn mt-30">Read More</a>
+                        <a href="{% url 'practice_intro' %}" class="btn famie-btn mt-30">Read More</a>
                     </div>
                     {% endfor %}
                 </div>
