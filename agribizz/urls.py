@@ -20,7 +20,7 @@ urlpatterns = [
     path('contact.html', views.contact, name="contact-view"),
     path('news.html', news_view, name='news-view'),
     path('thank_you.html', views.thank_you, name='thanks-page'),
-    path('practice_intro.html', practice_intro, name='practice_intro')
+    path('practice_intro.html', practice_intro, name='practice_intro'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
