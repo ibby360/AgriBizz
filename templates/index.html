@@ -269,7 +269,7 @@
                     <!-- Post Content -->
                     <div class="post-content">
                         <h6>Post on <a href="#">{{ news.date_created | timesince }} Ago</a> | <a href="#">{{ news.author.user.username }}</a></h6>
-                        <a href="#" class="post-title">{{ news.title }}</a>
+                        <a href="{% url 'news_details' news.slug %}" class="post-title">{{ news.title }}</a>
                     </div>
                 </div>
             {% endfor %}
@@ -285,7 +285,7 @@
                     <!-- Post Content -->
                     <div class="post-content">
                         <h6>Post on <a href="#">{{ list.date_created | timesince }} Ago</a> | <a href="#">{{ list.author.user.username }}</a></h6>
-                        <a href="#" class="post-title">{{ list.title }}</a>
+                        <a href="{% url 'news_details' list.slug %}" class="post-title">{{ list.title }}</a>
                         <p>{{ list.overview }}</p>
                     </div>
                 </div>
