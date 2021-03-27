@@ -37,7 +37,7 @@
             <!-- Single Blog Post Area -->
             <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="100ms">
               <h6>Post on <a href="#" class="post-date">{{ obj.date_created | timesince }}</a> ago | <a href="#" class="post-author">{{ obj.author }}</a></h6>
-              <a href="#" class="post-title">{{ obj.title }}</a>
+              <a href="{% url 'news_details' obj.slug %}" class="post-title">{{ obj.title }}</a>
               <img src="{{ obj.thumbnail.url }}" alt="" class="post-thumb">
               <p class="post-excerpt">
               {{ obj.overview }}
