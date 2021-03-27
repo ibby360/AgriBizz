@@ -1,4 +1,4 @@
-from blog.views import farming_practice, news_view, practice_details, practice_intro
+from blog.views import farming_practice, news_details, news_view, practice_details, practice_intro
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
@@ -21,6 +21,7 @@ urlpatterns = [
     path('news.html', news_view, name='news-view'),
     path('thank_you.html', views.thank_you, name='thanks-page'),
     path('practice_intro.html', practice_intro, name='practice_intro'),
+    path('news_details/<slug:slug>', news_details, name="news_details")
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
