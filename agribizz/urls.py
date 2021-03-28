@@ -21,7 +21,8 @@ urlpatterns = [
     path('news.html', news_view, name='news-view'),
     path('thank_you.html', views.thank_you, name='thanks-page'),
     path('practice_intro.html', practice_intro, name='practice_intro'),
-    path('news_details/<slug:slug>', news_details, name="news_details")
+    path('news_details/<slug:slug>', news_details, name="news_details"),
+    path('about.html', views.about_us, name='about'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
