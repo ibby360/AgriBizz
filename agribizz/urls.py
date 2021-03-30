@@ -1,4 +1,3 @@
-from blog.views import farming_practice, news_details, news_view, practice_details, practice_intro
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
@@ -9,7 +8,9 @@ from django.conf.urls.static import static
 from blog.views import (farming_practice,
                         practice_details,
                         news_view,
-                        practice_intro)
+                        practice_intro,
+                        news_details
+                        )
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
