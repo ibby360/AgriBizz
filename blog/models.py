@@ -27,7 +27,17 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
     
-# Models for farming practices
+class Category(models.Model):
+    title = models.CharField(max_length=20)
+
+    class meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.title
+
+# Entries for farming practices
 class BlogPost (models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
     author = models.ForeignKey(
@@ -35,6 +45,7 @@ class BlogPost (models.Model):
     title = models.CharField(max_length=200,)
     overview = models.CharField(max_length=150, null=True)
     slug = models.SlugField(null=True, unique=True)
+    categories = models.ManyToManyField(Category)
     thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     icon = ImageField(upload_to=upload_location, null=True, blank=True)
     content = HTMLField()
@@ -84,6 +95,8 @@ class News(models.Model):
 
     class Meta:
         ordering = ('-publish_date',)
+        verbose_name = "News"
+        verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
