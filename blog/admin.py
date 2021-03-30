@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import BlogPost, Author, News, PracticeIntro
+from blog.models import BlogPost, Author, News, PracticeIntro, Category
 
 # Register your models here.
 admin.site.register(Author)
@@ -25,3 +25,4 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ('news_status', 'publish_date')
 
 admin.site.register(PracticeIntro)
+admin.site.register(Category)
