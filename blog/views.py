@@ -1,8 +1,6 @@
 from django.core import paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-# from django.db.models.fields import SlugField
-# from django.db.models.query_utils import PathInfo
-# from django.http.response import Http404
+from django.db.models import Count
 from django.shortcuts import render
 from blog.models import BlogPost, News, PracticeIntro
 
@@ -10,6 +8,12 @@ from blog.models import BlogPost, News, PracticeIntro
 
 # View for the farming practicies page
 
+def get_category_count():
+    queryset = BlogPost \
+        .objects \
+        .values('categories__title') \
+        .annotate(Count('categories__title'))
+    return queryset
 
 def farming_practice(request):
     post_list = BlogPost.objects.all()
