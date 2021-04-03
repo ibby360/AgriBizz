@@ -11,6 +11,9 @@ from blog.views import (farming_practice,
                         practice_intro,
                         news_details
                         )
+
+handler404 = views.error_404
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
