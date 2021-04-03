@@ -52,3 +52,8 @@ def contact(request):
 
 def about_us(request):
     return render(request, 'about.html', )
+
+
+def error_404(request, exception):
+        context = {}
+        return render(request,'404.html', context)
