@@ -43,7 +43,7 @@ class BlogPost (models.Model):
     author = models.ForeignKey(
         Author, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=200,)
-    overview = models.CharField(max_length=150, null=True)
+    overview = models.CharField(max_length=150, default='', blank=True)
     slug = models.SlugField(null=True, unique=True)
     categories = models.ManyToManyField(Category)
     thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
