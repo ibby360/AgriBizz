@@ -1,6 +1,7 @@
 from django.core import paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
+from django.http import request
 from django.shortcuts import render
 from blog.models import BlogPost, News, PracticeIntro
 
@@ -80,3 +81,6 @@ def news_details(request, slug):
         'news': news
     }
     return render(request, 'news_details.html', context)
+
+def farm_management(request):
+    return render(request, 'farm_management.html', {})
