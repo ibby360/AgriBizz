@@ -19,15 +19,15 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
 
     path('', views.index, name='index'),
-    path('farmimng_practice.html', farming_practice, name='farming_practice'),
-    path('detail/<slug:slug>', practice_details, name='practice_details'),
-    path('contact.html', views.contact, name="contact-view"),
-    path('news.html', news_view, name='news-view'),
-    path('thank_you.html', views.thank_you, name='thanks-page'),
-    path('practice_intro.html', practice_intro, name='practice_intro'),
-    path('news_details/<slug:slug>', news_details, name="news_details"),
-    path('about.html', views.about_us, name='about'),
-    path('farm_management.html', farm_management, name='farm_management')
+    path('farmimng_practice', farming_practice, name='farming_practice'),
+    path('farming_practice/<slug:slug>', practice_details, name='practice_details'),
+    path('contact', views.contact, name="contact-view"),
+    path('news', news_view, name='news-view'),
+    path('thank_you', views.thank_you, name='thanks-page'),
+    path('practice_intro', practice_intro, name='practice_intro'),
+    path('news/<slug:slug>', news_details, name="news_details"),
+    path('about', views.about_us, name='about'),
+    path('farm_management', farm_management, name='farm_management')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
