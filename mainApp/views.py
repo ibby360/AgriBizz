@@ -45,7 +45,7 @@ def contact(request):
         contact.subject = subject
         contact.message = message
         contact.save()
-        return HttpResponseRedirect('thank_you.html')
+        return HttpResponseRedirect('thank_you')
         
 
     return render(request, 'contact.html',)
