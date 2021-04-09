@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import CharField
 from django.urls import reverse
 from tinymce.models import HTMLField
 from django.db.models.fields.files import ImageField
@@ -12,7 +13,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 
-
+# Media files location
 def upload_location(instance, filename):
     file_path = 'blog/images{author_id}/{title}-{filename}'.format(
         author_id=str(instance.author.id), title=str(instance.title), filename=filename
@@ -71,12 +72,26 @@ class BlogPost (models.Model):
     # def get_absolute_url(self):
     #     return reverse("practice_details", kwargs={"pk": self.id})
 
+
+
 # News Media Location Model 
 def img_location(instance, filename):
     file_path = 'blog/news_img{author_id}/{title}-{filename}'.format(
         author_id=str(instance.author.id), title=str(instance.title), filename=filename
     )
     return file_path
+
+# FAQ Model
+class Faq(models.Model):
+    question = models.CharField(max_length=150,)
+    answer = models.TextField()
+
+    class Meta:
+        verbose_name = "FAQ"
+        verbose_name_plural = "FAQs"
+
+    def __st__(self):
+        return self.question
 
 # News Model
 class News(models.Model):
