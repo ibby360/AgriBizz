@@ -3,11 +3,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from django.http import request
 from django.shortcuts import render
-from blog.models import BlogPost, News, PracticeIntro
+from blog.models import BlogPost, News, PracticeIntro, Faq
 
 # Create your views here.
 
-# View for the farming practicies page
+# View for the farming practicie page
 
 def get_category_count():
     queryset = BlogPost \
@@ -19,6 +19,7 @@ def get_category_count():
 def farming_practice(request):
     post_list = BlogPost.objects.all()
     introduction = PracticeIntro.objects.all()
+    faqs  = Faq.objects.all()
     paginator = Paginator(post_list, 6)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
@@ -32,6 +33,7 @@ def farming_practice(request):
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
         'introduction': introduction,
+        'faqs': faqs,
     }
     return render(request, 'farming_practice.html', context)
 
