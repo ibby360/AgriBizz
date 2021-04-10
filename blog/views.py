@@ -7,7 +7,6 @@ from blog.models import BlogPost, News, PracticeIntro, Faq
 
 # Create your views here.
 
-# View for the farming practicie page
 
 def get_category_count():
     queryset = BlogPost \
@@ -16,10 +15,11 @@ def get_category_count():
         .annotate(Count('categories__title'))
     return queryset
 
-def farming_practice(request):
+
+def farming_practice(request):  # View for the farming practicie page
     post_list = BlogPost.objects.all()
     introduction = PracticeIntro.objects.all()
-    faqs  = Faq.objects.all()
+    faqs = Faq.objects.all()
     paginator = Paginator(post_list, 6)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
@@ -37,20 +37,16 @@ def farming_practice(request):
     }
     return render(request, 'farming_practice.html', context)
 
-# View for the practice details page
 
-
-def practice_details(request, slug):
+def practice_details(request, slug):  # View for the practice details page
     post = BlogPost.objects.get(slug=slug)
     context = {
         'post': post,
     }
     return render(request, "practice_details.html", context)
 
-# View for the news page
 
-
-def news_view(request):
+def news_view(request):  # View for the news page
     news_list = News.objects.all()
     latest_pratice_post = BlogPost.objects.order_by('-date_created')[:4]
     paginator = Paginator(news_list, 3)
@@ -70,19 +66,20 @@ def news_view(request):
     }
     return render(request, "news.html", context)
 
-# Practice intro page view
-def practice_intro(request,):
-    intro_page = PracticeIntro.objects.get(pk = 1)
+
+def practice_intro(request,):  # Practice intro page view
+    intro_page = PracticeIntro.objects.get(pk=1)
     context = {'intro_page': intro_page}
     return render(request, 'practice_intro.html', context)
 
-# News details page veiw
-def news_details(request, slug):
-    news = News.objects.get(slug = slug)
+
+def news_details(request, slug):  # News details page veiw
+    news = News.objects.get(slug=slug)
     context = {
         'news': news
     }
     return render(request, 'news_details.html', context)
+
 
 def farm_management(request):
     return render(request, 'farm_management.html', {})
