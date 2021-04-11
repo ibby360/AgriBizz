@@ -86,8 +86,8 @@
 
                     <!-- Search Form -->
                     <div class="search-form">
-                        <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                        <form action="{% url 'search' %}" method="get">
+                            <input type="search" name="q" id="search" placeholder="Type keywords &amp; press enter..." required>
                             <button type="submit" class="d-none"></button>
                         </form>
                         <!-- Close Icon -->
