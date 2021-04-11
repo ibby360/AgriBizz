@@ -81,17 +81,6 @@ def img_location(instance, filename):
     )
     return file_path
 
-# FAQ Model
-class Faq(models.Model):
-    question = models.CharField(max_length=150,)
-    answer = models.TextField()
-
-    class Meta:
-        verbose_name = "FAQ"
-        verbose_name_plural = "FAQs"
-
-    def __st__(self):
-        return self.question
 
 # News Model
 class News(models.Model):
