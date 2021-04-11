@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="section-padding-100">
+    <div class="container">
+        {% for result in queryset %}
+        <div class="">
+            <a href="{% url 'practice_details' result.slug %}">{{ result.title }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock content %}
