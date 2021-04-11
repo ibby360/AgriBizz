@@ -445,6 +445,12 @@ input:focus {
     width: 100%;
     background-color: #f2f4f5;
 }
+/** Mobile **/
+@media only screen and (max-width: 767px){
+    .top-header-area{
+        display: none;
+    }
+}
 
 .top-header-content {
     position: relative;
