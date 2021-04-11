@@ -118,41 +118,5 @@
         <!-- Pagination End -->
     </section>
     <!-- ##### Farming Practice Area End ##### -->
-
-    <section class="famie-faq-area section-padding-100">
-        <div class="container">
-        <div class="row">
-            <div class="col-12">
-            <!-- Section Heading -->
-            <div class="section-heading text-center">
-                <p>HAVE A QUESTION?</p>
-                <h2><span>Get answers</span> to FAQs about the service</h2>
-                <img src="{% static 'img/core-img/decor2.png' %}" alt="">
-            </div>
-            </div>
-        </div>
-
-        <div class="row">
-            {% for faq in faqs %}
-            <div class="col-12">
-            <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
-
-                <!-- Single Accordian Area -->
-                <div class="panel single-accordion">
-                <h6><a role="button" class="collapsed" aria-expanded="false" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#accordion">{{ faq.question }}
-                    <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
-                    <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
-                    </a></h6>
-                <div id="collapseOne" class="accordion-content collapse" style="">
-                    <p>{{ faq.answer }}</p>
-                </div>
-                </div>
-
-            </div>
-            </div>
-            {% endfor %}
-        </div>
-        </div>
-    </section>
   
 {% endblock content %}
