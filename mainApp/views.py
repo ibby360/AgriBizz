@@ -1,10 +1,8 @@
-from django.http import HttpResponse
-from django.core.checks import messages
+from django.db.models import Q
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from mainApp.models import Newsletter, Contact
 from blog.models import BlogPost, News
-from blog.views import practice_details
 
 # Create your views here.
 
@@ -31,7 +29,7 @@ def index(request):
 def thank_you(request):
     return render(request, 'thank_you.html', )
 
-    
+# Contact view page function    
 def contact(request):
     if request.method == 'POST':
         contact = Contact()
@@ -50,10 +48,26 @@ def contact(request):
 
     return render(request, 'contact.html',)
 
+    
+# About us page view function
 def about_us(request):
     return render(request, 'about.html', )
 
-
+# 404 error page view function
 def error_404(request, exception):
         context = {}
         return render(request,'404.html', context)
+
+# Search result view function
+def search_page(request):
+    queryset = BlogPost.objects.all()
+    query = request.GET.get('q')
+    if query:
+        queryset = queryset.filter(
+            Q(title__icontains=query) |
+            Q(overview__icontains=query)
+        ).distinct()
+    context = {
+        'queryset': queryset
+    }
+    return render(request, 'search.html', context)
