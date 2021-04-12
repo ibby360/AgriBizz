@@ -17,7 +17,7 @@ def index(request):
         new_signup.email = email
         new_signup.save()
 
-    
+
     context = {
         'object_list': practice_post,
         'featured_news': news_post,
