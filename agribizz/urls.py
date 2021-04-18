@@ -33,7 +33,7 @@ urlpatterns = [
 
     # Products 
     path('products', products, name='products'),
-    path('product_details', product_details, name='product_details')
+    path('product_details/<slug:slug>', product_details, name='product_details')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
