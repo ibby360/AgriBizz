@@ -13,8 +13,8 @@ from django.contrib.auth.models import User
 
 
 def upload_location(instance, filename):
-    file_path = 'products/images{author_id}/{title}-{filename}'.format(
-        author_id=str(instance.author.id), title=str(instance.title), filename=filename
+    file_path = 'products/images{author_id}/{product_name}-{filename}'.format(
+        author_id=str(instance.author.id), product_name=str(instance.product_name), filename=filename
     )
     return file_path
 
@@ -32,15 +32,17 @@ class Category(models.Model):
 
 class Product(models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, default='')
     product_name = models.CharField(max_length=100)
     slug = models.SlugField(null=True, unique=True)
     categories = models.ManyToManyField(Category)
     thumbnail = models.ImageField(
         upload_to=upload_location, null=True, blank=True)
-    varieties = HTMLField()
-    processing_type = HTMLField()
-    quality_factor = HTMLField()
-    priec_factor = HTMLField()
+    product_description = HTMLField(blank=True)
+    varieties = HTMLField(blank=True)
+    processing_type = HTMLField(blank=True)
+    quality_factor = HTMLField(blank=True)
+    price_factor = HTMLField(blank=True)
     publish = models.DateTimeField(default=timezone.now)
     date_created = models.DateTimeField(verbose_name='date-published',auto_now_add=True)
     publish_date =models.DateTimeField(default=timezone.now)
