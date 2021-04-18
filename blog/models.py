@@ -4,7 +4,6 @@ from django.urls import reverse
 from tinymce.models import HTMLField
 from django.db.models.fields.files import ImageField
 
-from django.db.models.signals import post_delete, pre_save
 from django.utils.text import slugify
 from django.conf import settings
 from django.contrib.auth.models import User
