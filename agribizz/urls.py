@@ -5,6 +5,7 @@ from mainApp import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from  products.views import product_details, products
 from blog.views import (farm_management, farming_practice,
                         practice_details,
                         news_view,
@@ -28,7 +29,11 @@ urlpatterns = [
     path('news/<slug:slug>', news_details, name="news_details"),
     path('about', views.about_us, name='about'),
     path('farm_management', farm_management, name='farm_management'),
-    path('search', views.search_page, name='search')
+    path('search', views.search_page, name='search'),
+
+    # Products 
+    path('products', products, name='products'),
+    path('product_details', product_details, name='product_details')
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
