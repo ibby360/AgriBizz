@@ -7,7 +7,7 @@
       <div class="row h-100 align-items-center">
         <div class="col-12">
           <div class="breadcrumb-text">
-            <h2>Shop</h2>
+            <h2>Products</h2>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Shop</li>
+          <li class="breadcrumb-item active" aria-current="page">Products</li>
         </ol>
       </nav>
     </div>
@@ -29,23 +29,6 @@
   <section class="shop-area section-padding-0-100">
     <div class="container">
 
-      <div class="row">
-        <!-- Shop Filters -->
-        <div class="col-12">
-          <div class="shop-filters mb-30 d-flex align-items-center justify-content-between">
-            <!-- Product Show -->
-            <div class="product-show">
-              <h6>Showing 1–9 of 72 results</h6>
-            </div>
-
-            <!-- Product View Mode -->
-            <div class="produtc-view-mode">
-              <a href="#"><i class="fa fa-th"></i></a>
-              <a href="#"><i class="fa fa-list-ul"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="row">
         <!-- Shop Sidebar Area -->
@@ -227,7 +210,7 @@
               <div class="single-product-area mb-50">
                 <!-- Product Thumbnail -->
                 <div class="product-thumbnail">
-                  <img src="{% static 'img/bg-img/p3.jpg' " alt="">
+                  <img src="{% static 'img/bg-img/p3.jpg' %}" alt="">
                   <!-- Product Meta Data -->
                   <div class="product-meta-data">
                     <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
@@ -440,12 +423,16 @@
 
           </div>
 
-          <!-- Pagination -->
+        <!-- pagination -->
           <nav>
-            <ul class="pagination mb-0 mt-50">
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+            <ul class="pagination wow fadeInUp" data-wow-delay="900ms">
+              {% if queryset.has_previous %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.privious_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+              {% endif %}
+              <li class="page-item active"><a class="page-link" href="?{{ page_request_var }}={{ queryset.number }}">{{ queryset.number}}</a></li>
+              {% if queryset.has_next %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+              {% endif %}
             </ul>
           </nav>
         </div>
