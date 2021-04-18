@@ -1,13 +1,93 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-<!--Section: Block Content-->
-<section class="section-padding-80">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <h2>fjkajkdfjaklfkd dfjaklfdl</h2>
+   <!-- ##### Breadcrumb Area Start ##### -->
+   <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/18.jpg' %});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-text">
+                    <h2>Farm Management</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="famie-breadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Farm Management</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- About Area -->
+<div class="container">
+  <div class="row align-items-center">
+
+    <!-- About Us Content ##### -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow mb-100">
+        <!-- Section Heading -->
+        <div class="card-header">
+          <h5 class="text-uppercase">Product Profile</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-horizontal mb-3">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+        </div>
       </div>
     </div>
+
+    <!-- Famie -->
+    <div class="col-12 col-lg-6 thisPhoto">
+      <div class="card shadow mb-100">
+        <!-- Section Heading -->
+        <div class="card-header">
+          <h5 class="text-uppercase">Help us make this better guide</h5>
+        </div>
+        <div class="card-body">
+          <p>Are you an expert in Ginger? If you believe to be one, we strongly encourage you to become
+             our contributor and start sharing your knowledge of Ginger ultimately helping buyers and 
+             suppliers around the globe make informed business decisions. If you’re interested,
+              please apply to become a content contributor on Tridge now.</p>
+          <a href="contact" class="famie-btn btn rounded mx-auto">Become Our contributor</a>
+          
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
+</div>
+
+<div class="container pb-5">
+  <div class="card">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    </div>
+  </div>
+</div>
+
+<!-- About Area End ##### -->
+
 {% endblock content %}
