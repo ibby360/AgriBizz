@@ -2618,7 +2618,7 @@ textarea.form-control {
       position: relative;
       z-index: 1; }
       .single-product-area .product-desc .product-title {
-        font-size: 16px;
+        font-size: 18px;
         margin-bottom: 5px;
         font-weight: 400;
         display: block; }
@@ -2636,3 +2636,14 @@ textarea.form-control {
       opacity: 1;
       visibility: visible; }
   
+/* Single Product Thumbnail Zoom In */
+.single-product-area .product-thumbnail img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
+}
+.single-product-area .product-thumbnail:hover img {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1;
+}
