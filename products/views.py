@@ -21,10 +21,10 @@ def products(request):
     }    
     return render(request, 'products/products.html', context)
 
-def product_details(request):
-    # product_item = Product.objects.get()
+def product_details(request, slug):
+    product = Product.objects.get(slug = slug)
     context = {
-        # 'item': product_item,
+        'item': product,
     }
         
     return render(request, 'products/product_details.html', context)
