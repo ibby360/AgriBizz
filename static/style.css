@@ -426,15 +426,15 @@ input:focus {
     box-shadow: none;
 }
 
-.checkout-btn {
+.famie-practice-btn {
     height: 36px;
     line-height: 36px;
     font-size: 14px;
     border-radius: 3px;
 }
 
-.checkout-btn:hover,
-.checkout-btn:focus {
+.famie-practice-btn:hover,
+.famie-practice-btn:focus {
     font-size: 14px;
     font-weight: 700;
 }
@@ -2035,12 +2035,12 @@ input:focus {
     color: #77b122;
 }
 
-.cart-table {
+.practice-table {
     position: relative;
     z-index: 1;
 }
 
-.cart-table tbody {
+.practice-table tbody {
     display: block;
     position: relative;
     z-index: 1;
@@ -2048,24 +2048,24 @@ input:focus {
     padding-bottom: 15px;
 }
 
-.cart-table tbody tr td {
+.practice-table tbody tr td {
     vertical-align: middle;
     border-top: none;
 }
 
-.cart-table tbody tr td.cart_product_img a img {
+.practice-table tbody tr td.practice_img a img {
     max-width: 60px;
 }
 
-.cart-table tbody tr td.cart_product_desc p {
+.practice-table tbody tr td.practice_desc p {
     margin-bottom: 2px;
 }
 
-.cart-table tbody tr td.cart_product_desc h6 {
+.practice-table tbody tr td.practice_desc h6 {
     margin-bottom: 0;
 }
 
-.cart-table tbody tr td.pro-close a {
+.practice-table tbody tr td.pro-close a {
     display: inline-block;
     width: 26px;
     height: 26px;
@@ -2077,7 +2077,7 @@ input:focus {
     color: red;
 }
 
-.cart-table tbody tr td.pro-close a:hover {
+.practice-table tbody tr td.pro-close a:hover {
     background-color: #f2f4f5;
 }
 
@@ -2645,5 +2645,5 @@ textarea.form-control {
 }
 .single-product-area .product-thumbnail:hover img {
 	-webkit-transform: scale(1.1);
-	transform: scale(1.1;
+	transform: scale(1.1);
 }
