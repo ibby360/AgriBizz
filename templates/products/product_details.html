@@ -6,7 +6,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12">
                 <div class="breadcrumb-text">
-                    <h2>Farm Management</h2>
+                    <h2>Product Description</h2>
                 </div>
             </div>
         </div>
@@ -17,7 +17,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Farm Management</li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'products' %}">Products</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Product Description</li>
             </ol>
         </nav>
     </div>
@@ -33,14 +34,37 @@
       <div class="card shadow mb-100">
         <!-- Section Heading -->
         <div class="card-header">
-          <h5 class="text-uppercase">Product Profile</h5>
+          <h6 class="text-uppercase">Product Profile</h6>
         </div>
         <div class="card-body">
-          <ul class="list-group list-group-horizontal mb-3">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-          </ul>
+          <table class="table">
+            <!-- <caption>List of users</caption> -->
+            <thead>
+              <tr>
+                <!-- <th scope="col">#</th> -->
+                <!-- <th scope="col">First</th> -->
+                <!-- <th scope="col">Last</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-uppercase">Product Name </th>
+                <td>{{ item.product_name }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-uppercase">Categories</th>
+                <td>Jacob</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-uppercase">Type</th>
+                <td>Larry</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-uppercase">Varieties</th>
+                <td>Larry</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -50,7 +74,7 @@
       <div class="card shadow mb-100">
         <!-- Section Heading -->
         <div class="card-header">
-          <h5 class="text-uppercase">Help us make this better guide</h5>
+          <h6 class="text-uppercase">Help us make this better guide</h6>
         </div>
         <div class="card-body">
           <p>Are you an expert in Ginger? If you believe to be one, we strongly encourage you to become
@@ -69,25 +93,79 @@
 <div class="container pb-5">
   <div class="card">
     <div class="card-header">
-      Featured
+      Product Description
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">Product Description</h5>
+      <p class="card-text">{{item.product_description}}</p>
     </div>
 
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">Varieties</h5>
+      <p class="card-text">{{item.varieties}}</p>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">Proccessing Type</h5>
+      <p class="card-text">{{item.proccessing_type}}</p>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Quarity Factor</h5>
+      <p class="card-text">{{item.quarity_factor}}</p>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Price Factor</h5>
+      <p class="card-text">{{item.price_factor}}</p>
     </div>
   </div>
 </div>
 
+  <!-- ##### Our Products Area Start ##### -->
+  <section class="our-products-area section-padding-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Section Heading -->
+          <div class="section-heading text-center">
+            <p>Related Information</p>
+            <h2><span>People</span> Also Search For</h2>
+            <img src="img/core-img/decor2.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <!-- Single Product Area -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+            <!-- Product Thumbnail -->
+            <div class="product-thumbnail">
+              <img src="{% static 'img/bg-img/p1.jpg' %}" alt="">
+              <!-- Product Meta Data -->
+              <div class="product-meta-data">
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
+              </div>
+            </div>
+            <!-- Product Description -->
+            <div class="product-desc text-center pt-4">
+              <a href="#" class="product-title">Strawberry</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="gotoshop-btn text-center wow fadeInUp" data-wow-delay="900ms">
+            <a href="{% url 'products' %}" class="btn famie-btn">View All Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ##### Our Products Area End ##### -->
 <!-- About Area End ##### -->
 
 {% endblock content %}
