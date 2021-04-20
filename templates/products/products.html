@@ -57,7 +57,7 @@
               </table>
             </div>
 
-            <!-- Checkout -->
+            <!-- Farming Practice -->
             <a href="{% url 'farming_practice' %}" class="btn famie-btn famie-practice-btn mt-30 w-100">View More</a>
           </div>
 
@@ -106,7 +106,7 @@
                   <img src="{{ product.thumbnail.url }}" alt="">
                   <!-- Product Meta Data -->
                   <div class="product-meta-data">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
+                    <a href="{% url 'product_details' product.slug %}" data-toggle="tooltip" data-placement="top" title="Open"><i class="fa fa-arrow-right"></i></a>
                   </div>
                 </div>
                 <!-- Product Description -->
