@@ -84,7 +84,11 @@
                                         <li class="active"><a href="/">Home</a></li>
                                         <li><a href="{% url 'about' %}">About</a></li>
                                         <li><a href="{% url 'farming_practice' %}">Farming Practice</a></li>
-                                        <li><a href="{% url 'farm_management' %}">Farm Management</a></li>
+                                        <li><a href="{% url 'market' %}">Market</a>
+                                            <ul class="dropdown">
+                                              <li><a href="{% url 'post_product' %}">Post Products</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="{% url 'news-view' %}">News</a></li>
                                         <li><a href="{% url 'contact-view' %}">Contact</a></li>
                                     </ul>

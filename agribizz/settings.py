@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'mainApp',
     'blog',
     'products',
-    'tinymce'
+    'tinymce',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

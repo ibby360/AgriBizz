@@ -76,7 +76,3 @@ def news_details(request, slug):  # News details page veiw
         'news': news
     }
     return render(request, 'news_details.html', context)
-
-
-def farm_management(request):
-    return render(request, 'farm_management.html', {})
