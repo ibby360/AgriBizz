@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>E-market</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href"{% url 'market' %}">Market</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Post Product</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- Post Product Form Area Start -->
+
+    <section class="section-padding-80">
+        <div class="container pb-5">
+            <!-- Personal Information Area -->
+            <h4>Personal Information</h4>
+            <form>
+              <div class="form-row">
+                <div class=" form-group col">
+                    <label for="inputFullName">Full name</label>
+                  <input type="text" class="form-control" placeholder="Write Your Full Name">
+                </div>
+                <div class="form-group col">
+                    <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" placeholder="Write Your Email">
+                </div>
+                <div class="form-group col">
+                    <label for="inputPhoneNumber">Phone Number</label>
+                  <input type="tel" class="form-control" placeholder="+2550715582771">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col">
+                    <label for="inputRegion">Region</label>
+                    <select class="form-control">
+                        <option selected>-- Choose --</option>
+                        <option value="">...</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="inputLocation">Location</label>
+                    <input type="tel" class="form-control" placeholder="Enter District and Ward">
+                </div>
+              </div>
+              <!-- Personal Information Area End -->
+
+              <!-- Product Details Area -->
+              <h4>Product Details</h4>
+              <div class="form-row">
+                <div class="form-group col">
+                    <label for="inputProduct">Product Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Product Name">
+                </div>
+                <div class="col">
+                    <label for="inputQuantity">Quantity</label>
+                    <input type="number" class="form-control" placeholder="Enter Product Quantity">
+                </div>
+                <div class="col">
+                    <label for="inputPrice">Price</label>
+                    <input type="number" class="form-control" placeholder="Enter Product Price">
+                </div>
+              </div>
+              <!-- Product Details Area End -->
+
+              <div class="famie-btn">
+                <button type="submit" id="submitBtn" class="btn famie-btn">Submit</button>
+              </div>
+            </form>
+        </div>
+    </section>
+
+{% endblock content %}
+
