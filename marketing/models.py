@@ -17,6 +17,7 @@ class Person(models.Model):
 
 
 class Product(models.Model):
+    owner = models.ForeignKey(Person, on_delete=models.CASCADE)
     product_name = models.CharField(max_length=100)
     quantity = models.CharField(max_length=150)
     price = models.FloatField(max_length=100, null=False, blank=False)
