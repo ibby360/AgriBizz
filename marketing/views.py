@@ -6,3 +6,6 @@ def market(request):
 
 def post_product(request):
     return render(request, 'marketing/post_product.html', {})
+
+def single_product(request):
+    return render(request, 'marketing/single_product.html', {})

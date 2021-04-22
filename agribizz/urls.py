@@ -6,7 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from  products.views import product_details, products
-from marketing.views import market, post_product
+from marketing.views import market, post_product, single_product
 
 from blog.views import (farming_practice,
                         practice_details,
@@ -44,6 +44,7 @@ urlpatterns = [
     # Marketing
     path('market', market, name='market'),
     path('post_product', post_product, name='post_product'),
+    path('single_product', single_product, name='single_product'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
