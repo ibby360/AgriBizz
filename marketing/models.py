@@ -5,10 +5,24 @@ from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
 class Person(models.Model):
+    # Region choices
+    CHOICES = (
+        ('Arusha', 'Arusha'),
+        ('Dar es Salaam', 'Dar es Salaam'),
+        ('Geita', 'Geita'),
+        ('Kagera', 'Kagera'),
+        ('Mwanza', 'Mwanza'),
+        ('Morogoro', 'Morogoro'),
+        ('Shinyanga', 'Shinyanga'),
+        ('Tabora', 'Tabora'),
+        ('Singida', 'Singida'),
+        ('Simiyu', 'Simiyu'),
+        ('Mbeya', 'Mbeya'),
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, )
     phone_number = PhoneNumberField(null=False, blank=False)
-    region = models.CharField(max_length=50) 
+    region = models.CharField(max_length=50, choices=CHOICES) 
     district = models.CharField(max_length=50)
     ward = models.CharField(max_length=50)
 
