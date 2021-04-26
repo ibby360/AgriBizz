@@ -2717,6 +2717,19 @@ Single Product Thumbnail Zoom In
     box-shadow: none;
 }
 
+.btn-danger {
+    border: none;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    /* font-size: 16px; */
+    font-weight: 700;
+    background-color: #0f1112;
+    color: #ffffff;
+    box-shadow: none;
+}
+
 @media (min-width:360px) and (max-width:640px) {
     .pro-box-section .pro-box img {
         height: auto;
@@ -2725,4 +2738,8 @@ Single Product Thumbnail Zoom In
 
 .pro-box img {
     width: 10%;
+}
+
+.p_title:hover {
+    color: #77b122;;
 }
