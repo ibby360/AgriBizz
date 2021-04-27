@@ -30,7 +30,7 @@ urlpatterns = [
     path('thank_you', views.thank_you, name='thanks-page'),
 
     # Blog
-    path('farmimng_practice', farming_practice, name='farming_practice'),
+    path('farming_practice', farming_practice, name='farming_practice'),
     path('farming_practice/<slug:slug>', practice_details, name='practice_details'),
     path('news', news_view, name='news-view'),
     path('practice_intro', practice_intro, name='practice_intro'),
@@ -44,7 +44,7 @@ urlpatterns = [
     # Marketing
     path('market', market, name='market'),
     path('post_product', post_product, name='post_product'),
-    path('single_product', single_product, name='single_product'),
+    path('single_product/<int:pk>', single_product, name='single_product'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
