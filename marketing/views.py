@@ -1,54 +1,42 @@
 from django.shortcuts import render
+from django.http.response import HttpResponseRedirect, HttpResponse
 from marketing.models import PostProduct
+from marketing.forms import SellProduct
+
+from django.contrib import messages
 
 # Create your views here.
+
+
 def market(request):
-    products = PostProduct.objects.all()
+    products = PostProduct.objects.order_by('-date_created')
     context = {
         'products': products
     }
     return render(request, 'marketing/market.html', context)
 
+
 def post_product(request):
-    if request.method == 'POST':
-        post_product = PostProduct()
+    if request.method == "POST":
+        form = SellProduct(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('market')
 
-        full_name = request.POST.get('full_name')
-        email = request.POST.get('email')
-        phone_number = request.POST.get('phone_number')
-        region = request.POST.get('region')
-        location = request.POST.get('location')
-
-        post_product.full_name = full_name
-        post_product.email= email
-        post_product.phone_number = phone_number
-        post_product.region = region
-        post_product.location = location
-
-        product_name = request.POST.get('product_name')
-        scale = request.POST.get('scale')
-        amount = request.POST.get('amount')
-        price = request.POST.get('price')
-
-        post_product.product_name = product_name
-        post_product.scale = scale
-        post_product.quantity = amount
-        post_product.price = price
-
-
-        post_product.save()
-
-    # region = Person.objects.get(region)
-
+    else:
+        form = SellProduct()
     context = {
-        # 'region': region,
+        'form': form,
     }
     return render(request, 'marketing/post_product.html', context)
 
+
 def single_product(request, pk):
     item = PostProduct.objects.get(pk=pk)
+    products = PostProduct.objects.order_by('date_created')[:4]
 
     context = {
-        'item': item
+        'item': item,
+        'products': products
     }
     return render(request, 'marketing/single_product.html', context)
