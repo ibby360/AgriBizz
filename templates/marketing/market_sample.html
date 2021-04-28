@@ -1,0 +1,48 @@
+   <!-- Products Area Start -->
+    <section class="section-padding-100-50 bg-gray">
+      <div class="container">
+        <!-- Section Heading -->
+        <div class="section-heading text-center">
+          <p>Reach Your Customers</p>
+          <h2><span>Farming Practices</span> To Preserve Land & Water</h2>
+          <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+        </div>
+        <!-- Section Heading End -->
+        
+        <div class="card-deck wow fadeInUp" data-wow-delay="100ms">
+          {% for product in products %}
+          <div class="card shadow">
+            <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <a href="{% url 'single_product' product.pk %}"><h5 class="card-title p_title text-uppercase">{{ product.product_name }}</h5></a>
+                </div>
+                <div class="text-muted">
+                  <h5 class="text-muted">{{ product.amount }} {{ product.scale }} </h5>
+                </div>
+              </div>
+              <div class="d-flex flex-column justify-content-between">
+                <div class="location">
+                  <span class="text-muted">
+                    <i class="icon_pin_alt"></i>
+                    {{ product.region }}, {{ product.location }}
+                  </span>
+                </div> 
+                <div class="price text-danger">
+                  <span>
+                    TZS {{ product.price }}
+                  </span>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <i class="icon_calendar pr-2"></i><small class="text-muted">{{ product.date_created | timesince }} Ago</small>
+            </div>
+          </div>
+          {% endfor %}
+ 
+        </div>
+      </div>
+    </section>
