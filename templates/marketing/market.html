@@ -7,7 +7,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-text">
-                        <h2>E-market</h2>
+                        <h2>MarketPlace</h2>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Market</li>
+                    <li class="breadcrumb-item active" aria-current="page">MarketPlace</li>
                 </ol>
             </nav>
         </div>
@@ -38,8 +38,10 @@
               <h2>Market </h2>
               <img src="{% static 'img/core-img/decor.png' %}" alt="">
             </div>
-            <p>This section covers all aspects of farm management, such as business planning, crop insurance, estate planning, farm programs,
-             and finances. You’ll also find trends in farmland prices as well as data from recent sales.
+            <p>AgriBizz MarketPlace is a web platform that will help farmers to get market of their products without walking around by simply using mobile phones browser.
+              This will enable them to reach the markets and especially the buyers of their products and agricultural products without the hassle of exporting the products to the market.
+              Thus, through this platform farmers will be able to provide crop information, crop prices and their location so that buyers can reach them more easily.
+               This will open and connect more retailers and consumers in the country and reduce the cost of access to agricultural products.
             </p>
           </div>
         </div>
@@ -55,47 +57,64 @@
     </div>
     <!-- About Area End ##### -->
 
-    <!-- Products Area Start -->
-    <section class="section-padding-100-50 bg-gray">
+    <section class='farming-practice-area section-padding-100-50 bg-gray'>
       <div class="container">
-        <!-- Section Heading -->
-        <div class="section-heading text-center">
-          <p>Make the world green</p>
-          <h2><span>Farming Practices</span> To Preserve Land & Water</h2>
-          <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+        <div class="row">
+          <div class="col-12">
+            <!-- Section Heading -->
+            <div class="section-heading text-center">
+                <p>Make the world green</p>
+                <h2><span>Farming Practices</span> To Preserve Land & Water</h2>
+                <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+            </div>
+          </div>
         </div>
-        <!-- Section Heading End -->
-        
-        <div class="card-deck">
-          <div class="card shadow">
-            <img src="static/img/bg-img/14.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+
+        <div class=" wow fadeInUp" data-wow-delay="100ms">      
+          <div class="row">
+            {% for product in products %}
+            <div class="col-md-4">
+              <div class="card mb-4 card-pro hover">
+              	<div class="card-img" style="background-image:url({{product.thumbnail.url}});">
+              		<div class="overlay">
+              			<div class="overlay-content">
+              				<a class="hover" href="{% url 'single_product' product.pk %}">View Product</a>
+              			</div>
+              		</div>
+              	</div>
+              	<div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <a href="{% url 'single_product' product.pk %}"><h5 class="card-title p_title text-uppercase">{{ product.product_name }}</h5></a>
+                    </div>
+                    <div class="text-muted">
+                      <h5 class="text-muted">{{ product.amount }} {{ product.scale }} </h5>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column justify-content-between">
+                    <div class="location text-center" style="font-size: 1.2rem;">
+                      <span>
+                        {% comment %} <i class="icon_pin_alt"></i> {% endcomment %}
+                        {{ product.region }}, {{ product.location }}
+                      </span>
+                    </div>
+                    <div class="price text-danger text-center" style="font-size: 1.2rem;">
+                      <span>
+                        TZS {{ product.price }}
+                      </span>
+                    </div>
+                  </div>
+
+              	</div>
+                <div class="card-footer">
+                  <i class="icon_calendar pr-2"></i><small class="text-muted">{{ product.date_created | timesince }} Ago</small>
+                </div>
+
+                
+              </div>
             </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-          <div class="card">
-            <img src="static/img/bg-img/14.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-          <div class="card">
-            <img src="static/img/bg-img/14.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
