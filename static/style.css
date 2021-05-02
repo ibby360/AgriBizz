@@ -2759,10 +2759,10 @@ Single Product Thumbnail Zoom In
     overflow: hidden;
   }
 
-  @media (min-width:360px) and (max-width:640px){
+@media (min-width:360px) and (max-width:640px){
       .card-pro {
-          margin-left: 2.5rem;
-          margin-right: 2.5rem;
+          margin: auto;
+          width: 100%;
       }
   }
 
@@ -2848,3 +2848,14 @@ Single Product Thumbnail Zoom In
     color: rgba(32, 41, 28, 0.8);
   }
   /* Markets Cards End Here */
+
+
+.more-prod-btn {
+    padding-left: 35%;
+}
+
+@media (min-width:360px) and (max-width:640px) {
+    .more-prod-btn {
+        padding-left: 0;
+    }
+}
