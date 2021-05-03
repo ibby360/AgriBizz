@@ -8,7 +8,6 @@ from django.utils.text import slugify
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.dispatch import receiver
 
 # Create your models here.
 
@@ -27,16 +26,6 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
     
-class Category(models.Model):
-    title = models.CharField(max_length=20)
-
-    class meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
-
-    def __str__(self):
-        return self.title
-
 # Entries for farming practices
 class BlogPost (models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
@@ -45,7 +34,6 @@ class BlogPost (models.Model):
     title = models.CharField(max_length=200,)
     overview = models.CharField(max_length=150, default='', blank=True)
     slug = models.SlugField(null=True, unique=True)
-    categories = models.ManyToManyField(Category)
     thumbnail = models.ImageField(upload_to=upload_location, null=True, blank=True)
     icon = ImageField(upload_to=upload_location, null=True, blank=True)
     content = HTMLField()
@@ -71,7 +59,19 @@ class BlogPost (models.Model):
     # def get_absolute_url(self):
     #     return reverse("practice_details", kwargs={"pk": self.id})
 
+class Comment(models.Model):
+    post = models.ForeignKey(BlogPost,on_delete=models.CASCADE,related_name='comments')
+    name = models.CharField(max_length=80, blank=False)
+    email = models.EmailField(blank=False,)
+    message = models.TextField(blank=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.message, self.name)
 
 # News Media Location Model 
 def img_location(instance, filename):
