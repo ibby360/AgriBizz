@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- ##### Breadcrumb Area Start ##### -->
+  <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <div class="breadcrumb-text">
+            <h2>News</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="famie-breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">News</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!-- ##### Breadcrumb Area End ##### -->
+
+  <!-- ##### Blog Area Start ##### -->
+  <section class="famie-blog-area">
+    <div class="container">
+      <div class="row">
+        <!-- Posts Area -->
+        <div class="col-12 col-md-8">
+          <div class="posts-area">
+            {% for obj in queryset %}
+
+            <!-- Single Blog Post Area -->
+            <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+              <h6>Post on <a href="#" class="post-date">{{ obj.date_created | timesince }}</a> ago | <a href="#" class="post-author">{{ obj.author }}</a></h6>
+              <a href="{% url 'news_details' obj.slug %}" class="post-title">{{ obj.title }}</a>
+              <img src="{{ obj.thumbnail.url }}" alt="" class="post-thumb">
+              <p class="post-excerpt">
+              {{ obj.overview }}
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!-- pagination -->
+          <nav>
+            <ul class="pagination wow fadeInUp" data-wow-delay="900ms">
+              {% if queryset.has_previous %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{queryset.privious_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+              {% endif %}
+              <li class="page-item active"><a class="page-link" href="?{{ page_request_var }}={{ queryset.number }}">{{ queryset.number }}</a></li>
+              {% if queryset.has_next %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Sidebar Area -->
+        <div class="col-12 col-md-4">
+          <div class="sidebar-area">
+
+            <!-- Single Widget Area -->
+            <div class="single-widget-area">
+              <!-- Title -->
+              <h5 class="widget-title">Farming Practice</h5>
+              {% for obj in object_list %}
+
+
+              <!-- Single Recent News Start -->
+
+              <div class="single-recent-blog style-2 d-flex align-items-center">
+                <div class="post-thumbnail">
+                  <img src="{{ obj.thumbnail.url}}" alt="">
+                </div>
+                <div class="post-content">
+                  <a href="{% url 'practice_details' obj.slug %}" class="post-title">{{ obj.title }}</a>
+                  <div class="post-date">{{ obj.date_created }}</div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ##### Blog Area End ##### -->
+
+{% endblock content %}
