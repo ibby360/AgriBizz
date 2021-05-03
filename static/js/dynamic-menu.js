@@ -1,5 +1,5 @@
 /* Code for changing active link on clicking */
-var btns = $("#famieNav .navbar-nav .nav-links");
+var btns = $(".classynav ul li");
 
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function () {
@@ -12,6 +12,7 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 
+// Changing hover class on product cards
 $(document).ready(function() {
 	
 	$('.card').delay(1800).queue(function(next) {
