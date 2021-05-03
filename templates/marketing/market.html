@@ -34,8 +34,8 @@
           <div class="about-us-content mb-100">
             <!-- Section Heading -->
             <div class="section-heading">
-              <p>Successful Farming</p>
-              <h2>Market </h2>
+              <p>AgriBizz</p>
+              <h2>MarketPlace</h2>
               <img src="{% static 'img/core-img/decor.png' %}" alt="">
             </div>
             <p>AgriBizz MarketPlace is a web platform that will help farmers to get market of their products without walking around by simply using mobile phones browser.
@@ -49,7 +49,7 @@
         <!-- Famie -->
         <div class="col-12 col-lg-6">
           <div class="about-us-thumbnail mb-100">
-            <img src="{% static 'img/bg-img/tim-mossholder.jpg' %}" alt="strawberries are harvested">
+            <img src="{% static 'img/bg-img/market.jpg' %}" alt="strawberries are harvested">
           </div>
         </div>
 
@@ -63,8 +63,8 @@
           <div class="col-12">
             <!-- Section Heading -->
             <div class="section-heading text-center">
-                <p>Make the world green</p>
-                <h2><span>Farming Practices</span> To Preserve Land & Water</h2>
+                <p>AgriBizz MarketPlace</p>
+                <h2><span>Let Your Product</span> Be Descovered</h2>
                 <img src="{% static 'img/core-img/decor2.png' %}" alt="">
             </div>
           </div>
@@ -75,7 +75,7 @@
           <div class="row">
             {% for product in products %}
             <div class="col-md-4">
-              <div class="card mb-4 card-pro hover">
+              <div class="card mb-4 card-pro hover" style="max-width: 100%;">
               	<div class="card-img" style="background-image:url({{product.thumbnail.url}});">
               		<div class="overlay">
               			<div class="overlay-content">
