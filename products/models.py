@@ -18,24 +18,11 @@ def upload_location(instance, filename):
     )
     return file_path
 
-
-class Category(models.Model):
-    title = models.CharField(max_length=20)
-
-    class meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
-
-    def __str__(self):
-        return self.title
-
-
 class Product(models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, default='')
     product_name = models.CharField(max_length=100)
     slug = models.SlugField(null=True, unique=True)
-    categories = models.ManyToManyField(Category)
     thumbnail = models.ImageField(
         upload_to=upload_location, null=True, blank=True)
     product_description = HTMLField(blank=True)
