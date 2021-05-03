@@ -32,7 +32,7 @@ def farming_practice(request):  # View for the farming practicie page
         'page_request_var': page_request_var,
         'introduction': introduction,
     }
-    return render(request, 'farming_practice.html', context)
+    return render(request, 'blog/farming_practice.html', context)
 
 
 def practice_details(request, slug):  # View for the practice details page
@@ -40,7 +40,7 @@ def practice_details(request, slug):  # View for the practice details page
     context = {
         'post': post,
     }
-    return render(request, "practice_details.html", context)
+    return render(request, "blog/practice_details.html", context)
 
 
 def news_view(request):  # View for the news page
@@ -61,7 +61,7 @@ def news_view(request):  # View for the news page
         'object_list': latest_pratice_post
 
     }
-    return render(request, "news.html", context)
+    return render(request, "blog/news.html", context)
 
 
 def practice_intro(request,):  # Practice intro page view
@@ -75,4 +75,4 @@ def news_details(request, slug):  # News details page veiw
     context = {
         'news': news
     }
-    return render(request, 'news_details.html', context)
+    return render(request, 'blog/news_details.html', context)
