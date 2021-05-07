@@ -2859,3 +2859,18 @@ Single Product Thumbnail Zoom In
         padding-left: 0;
     }
 }
+
+
+/* Product Description Area */
+.custom_title {
+    color: #77b122;
+    font-size: 1.2em;
+}
+
+.btn-link {
+    color: transparent;
+}
+
+.btn-link:hover {
+    color: transparent;
+}
