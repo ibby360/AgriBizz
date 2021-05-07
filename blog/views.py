@@ -3,17 +3,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Count
 from django.http import request
 from django.shortcuts import render
-from blog.models import BlogPost, News, PracticeIntro
+from blog.models import BlogPost, News, PracticeIntro, Comment
+from blog.forms import CommentForm
 # Create your views here.
-
-
-def get_category_count():
-    queryset = BlogPost \
-        .objects \
-        .values('categories__title') \
-        .annotate(Count('categories__title'))
-    return queryset
-
 
 def farming_practice(request):  # View for the farming practicie page
     post_list = BlogPost.objects.all()
@@ -37,8 +29,19 @@ def farming_practice(request):  # View for the farming practicie page
 
 def practice_details(request, slug):  # View for the practice details page
     post = BlogPost.objects.get(slug=slug)
+    comments = post.comments.filter(active=True)
+    # Comment posted
+    comment_form = CommentForm(request.POST or None)
+    if request.method == "POST":
+        if comment_form.is_valid():
+            comment_form.instance.post = post
+            comment_form.save()
+            comment_form = CommentForm()
+
     context = {
         'post': post,
+        'comments': comments,
+        'comment_form': comment_form
     }
     return render(request, "blog/practice_details.html", context)
 
