@@ -1,23 +1,14 @@
-/* Code for changing active link on clicking */
-var btns = $(".classynav ul li");
+ // Get the container element
+ var btnContainer = document.getElementById("myDIV");
 
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    var current = document.getElementsByClassName("active");
-
-    current[0].className = current[0].className.replace(" active", "");
-
-    this.className += " active";
-  });
-}
-
-
-// Changing hover class on product cards
-$(document).ready(function() {
-	
-	$('.card').delay(1800).queue(function(next) {
-		$(this).removeClass('hover');
-		$('a.hover').removeClass('hover');
-		next();
-	});
-});
+ // Get all buttons with class="btn" inside the container
+ var btns = btnContainer.getElementsByClassName("btn");
+ 
+ // Loop through the buttons and add the active class to the current/clicked button
+ for (var i = 0; i < btns.length; i++) {
+   btns[i].addEventListener("click", function() {
+     var current = document.getElementsByClassName("active");
+     current[0].className = current[0].className.replace(" active", "");
+     this.className += " active";
+   });
+  } 

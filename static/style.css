@@ -2874,3 +2874,9 @@ Single Product Thumbnail Zoom In
 .btn-link:hover {
     color: transparent;
 }
+
+
+.product-image {
+    max-width: 20%;
+}
+
