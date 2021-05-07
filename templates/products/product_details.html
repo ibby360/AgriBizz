@@ -37,15 +37,10 @@
           <h6 class="text-uppercase">Product Profile</h6>
         </div>
         <div class="card-body">
+          <div class="card product-image">
+            <img src="{{item.thumbnail.url}}" alt="" srcset="">
+          </div>
           <table class="table">
-            <!-- <caption>List of users</caption> -->
-            <thead>
-              <tr>
-                <!-- <th scope="col">#</th> -->
-                <!-- <th scope="col">First</th> -->
-                <!-- <th scope="col">Last</th> -->
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <th scope="row" class="text-uppercase">Product Name </th>
@@ -72,15 +67,15 @@
     <!-- Famie -->
     <div class="col-12 col-lg-6 thisPhoto">
       <div class="card shadow mb-100">
-        <!-- Section Heading -->
+        <!-- Heading -->
         <div class="card-header">
           <h6 class="text-uppercase">Help us make this better guide</h6>
         </div>
         <div class="card-body">
-          <p>Are you an expert in Ginger? If you believe to be one, we strongly encourage you to become
-             our contributor and start sharing your knowledge of Ginger ultimately helping buyers and 
+          <p>Are you an expert in {{item.product_name}}? If you believe to be one, we strongly encourage you to become
+             our contributor and start sharing your knowledge of {{item.product_name}} ultimately helping buyers and 
              suppliers around the globe make informed business decisions. If you’re interested,
-              please apply to become a content contributor on Tridge now.</p>
+              please apply to become a content contributor on AgriBizz now.</p>
           <a href="contact" class="famie-btn btn rounded mx-auto">Become Our contributor</a>
           
         </div>
@@ -90,54 +85,108 @@
   </div>
 </div>
 
-<!-- Description Area Start -->
-<div class="container pb-5">
-  <div class="card shadow">
-    <div class="card-header">
-      Product Description
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Product Description</h5>
-      <p class="card-text">{{item.product_description}}</p>
+
+<section>
+  <div class="container">
+<!-- Section Heading -->
+    <div class="section-heading text-center">
+      <h2>General Details of <span>{{item.product_name}}</span></h2>
+      <img src="{% static 'img/core-img/decor2.png' %}" alt="">
     </div>
 
-    <div class="card-body">
-      <h5 class="card-title">Varieties</h5>
-      <p class="card-text">{{item.varieties}}</p>
-    </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
 
-    <div class="card-body">
-      <h5 class="card-title">Proccessing Type</h5>
-      <p class="card-text">{{item.proccessing_type}}</p>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Quarity Factor</h5>
-      <p class="card-text">{{item.quarity_factor}}</p>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Price Factor</h5>
-      <p class="card-text">{{item.price_factor}}</p>
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Product Description
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a></h6>
+              <div id="collapseOne" class="accordion-content collapse show">
+                <p>{{item.product_description | safe }}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Varieties
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseTwo" class="accordion-content collapse">
+                <p>{{item.varieties | safe}}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Processing Type
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseThree" class="accordion-content collapse">
+                <p>{{item.processing_type | safe}}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" aria-expanded="true" aria-controls="collapseFour" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseFour">Quality Factor
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseFour" class="accordion-content collapse">
+                <p>{{item.quality_factor | safe}}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" aria-expanded="true" aria-controls="collapseFive" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseFive">Price Factor
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseFive" class="accordion-content collapse">
+                <p>{{item.price_factor | safe}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+  <!-- ##### FAQ Area End ##### -->
+
 
   <!-- ##### Our Products Area Start ##### -->
   <section class="our-products-area section-padding-100">
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <!-- Section Heading -->
+          <!-- Heading -->
           <div class="section-heading text-center">
             <p>Related Information</p>
-            <h2><span>People</span> Also Search For</h2>
-            <img src="img/core-img/decor2.png" alt="">
+            <h2><span>People</span> Also View</h2>
+            <img src="{% static 'img/core-img/decor2.png' %}" alt="">
           </div>
         </div>
       </div>
 
       <div class="row">
 
-        <!-- Single Product Area -->
+        <!-- Related Products Area -->
           {% for item in related %}
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
@@ -146,7 +195,7 @@
               <img src="{{item.thumbnail.url}}" alt="">
               <!-- Product Meta Data -->
               <div class="product-meta-data">
-                <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="fa fa-arrow-right"></i></a>
               </div>
             </div>
             <!-- Product Description -->
