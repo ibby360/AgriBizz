@@ -39,22 +39,22 @@
               <div class="share-post d-flex align-items-center">
                 <span>Share This post:</span>
                 <!-- Share Icons -->
+                
                 <div class="share-icons">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-pinterest"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                  <a href="https://api.whatsapp.com/send?text={{request.build_absolute_uri}}" target="_blank"><i class="fa fa-whatsapp"></i></a>
+                  <a href="https://twitter.com/home?status=20{{request.build_absolute_uri}}" target="_blank"><i class="fa fa-twitter"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
           <!-- Comment Area Start -->
           <div class="comment_area clearfix mb-50">
 
             <!-- Title -->
-            <h3 class="mb-50">3 Comments</h3>
-
+            <h3 class="mb-50">{{comments.count}} Comments</h3>
             <ul>
+            {% for comment in comments %}
               <!-- Single Comment Area -->
               <li class="single_comment_area">
                 <!-- Comment Content -->
@@ -65,50 +65,15 @@
                   </div>
                   <!-- Comment Meta -->
                   <div class="comment-meta">
-                    <a href="#" class="comment-date">27 Aug 2019</a>
-                    <h6>Diego Simeone</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sitdown ameto, consectetur, adipisci velit, sed quiata non numqua eius modi tempor incidunt ut labore et dolore magnam, semper quis mollis id, ullamcorper ut diam.</p>
-                    <a href="#" class="reply">Reply</a>
-                  </div>
-                </div>
-
-                <ol class="children">
-                  <li class="single_comment_area">
-                    <!-- Comment Content -->
-                    <div class="comment-content d-flex">
-                      <!-- Comment Author -->
-                      <div class="comment-author">
-                        <img src="{% static 'img/bg-img/32.jpg' %}" alt="author">
-                      </div>
-                      <!-- Comment Meta -->
-                      <div class="comment-meta">
-                        <a href="#" class="comment-date">27 Aug 2019</a>
-                        <h6>Susie Martha</h6>
-                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sitdown ameto, consectetur, adipisci velit, sed quiata non numqua eius modi tempor incidunt ut labore et dolore magnam, semper quis mollis id, ullamcorper ut diam.</p>
-                        <a href="#" class="reply">Reply</a>
-                      </div>
-                    </div>
-                  </li>
-                </ol>
-              </li>
-
-              <!-- Single Comment Area -->
-              <li class="single_comment_area">
-                <!-- Comment Content -->
-                <div class="comment-content d-flex">
-                  <!-- Comment Author -->
-                  <div class="comment-author">
-                    <img src="{% static 'img/bg-img/33.jpg' %}" alt="author">
-                  </div>
-                  <!-- Comment Meta -->
-                  <div class="comment-meta">
-                    <a href="#" class="comment-date">27 Aug 2019</a>
-                    <h6>Jonny Evans</h6>
-                    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sitdown ameto, consectetur, adipisci velit, sed quiata non numqua eius modi tempor incidunt ut labore et dolore magnam, semper quis mollis id, ullamcorper ut diam.</p>
+                    <a href="#" class="comment-date">{{ comment.created_on | date:"DATE_FORMAT" }}</a>
+                    <h6>{{ comment.name }}</h6>
+                    <p>{{comment.message}}</p>
                     <a href="#" class="reply">Reply</a>
                   </div>
                 </div>
               </li>
+              {% endfor %}
+
             </ul>
           </div>
 
@@ -116,23 +81,26 @@
           <div class="post-a-comment-area">
 
             <!-- Title -->
-            <h3 class="mb-50">Leave A Reply</h3>
+            <h3 class="mb-50">Leave A Comment</h3>
 
             <!-- Reply Form -->
             <div class="contact-form-area">
-              <form action="#" method="post">
+              <form method="post" id="myForm">
+                {% csrf_token %}
                 <div class="row">
                   <div class="col-12 col-lg-6">
-                    <input type="text" class="form-control" id="name" placeholder="Your Name*">
+                    {{comment_form.name}}
                   </div>
                   <div class="col-12 col-lg-6">
-                    <input type="email" class="form-control" id="email" placeholder="Your Email*">
+                    <span id="email">
+                      {{comment_form.email}} 
+                    </span>
                   </div>
                   <div class="col-12">
-                    <textarea name="message" class="form-control" id="message" placeholder="Message*"></textarea>
+                    {{comment_form.message | linebreaks}}
                   </div>
                   <div class="col-12">
-                    <button class="btn famie-btn mt-30" type="submit">Submit Comment</button>
+                    <button class="btn famie-btn mt-30" type="submit" value="submit" onclick="submitForm()">Submit Comment</button>
                   </div>
                 </div>
               </form>
