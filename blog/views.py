@@ -5,6 +5,7 @@ from django.http import request
 from django.shortcuts import render
 from blog.models import BlogPost, News, PracticeIntro, Comment
 from blog.forms import CommentForm
+from django.contrib import messages
 # Create your views here.
 
 def farming_practice(request):  # View for the farming practicie page
@@ -36,6 +37,9 @@ def practice_details(request, slug):  # View for the practice details page
         if comment_form.is_valid():
             comment_form.instance.post = post
             comment_form.save()
+            messages.success(request, "Your comment was successfully uploaded. Wait for admin to aprove it.")
+
+        else:
             comment_form = CommentForm()
 
     context = {
