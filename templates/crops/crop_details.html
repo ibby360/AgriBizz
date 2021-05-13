@@ -1,0 +1,214 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+   <!-- ##### Breadcrumb Area Start ##### -->
+   <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcrumb-text">
+                    <h2>Crop Description</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="famie-breadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'crops' %}">Crops</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Crop Description</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- ##### Breadcrumb Area End ##### -->
+
+<!-- About Area -->
+<div class="container">
+  <div class="row align-items-center">
+
+    <!-- About Us Content ##### -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow mb-100">
+        <!-- Section Heading -->
+        <div class="card-header">
+          <h6 class="text-uppercase">Product Profile</h6>
+        </div>
+        <div class="card-body">
+          <div class="card product-image">
+            <img src="{{crop.thumbnail.url}}" alt="" srcset="">
+          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row" class="text-uppercase">Product Name </th>
+                <td>{{ crop.crop_name }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-uppercase">Categories</th>
+                <td>Jacob</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Famie -->
+    <div class="col-12 col-lg-6 thisPhoto">
+      <div class="card shadow mb-100">
+        <!-- Heading -->
+        <div class="card-header">
+          <h6 class="text-uppercase">Help us make this better guide</h6>
+        </div>
+        <div class="card-body">
+          <p>Are you an expert in {{crop.crop_name}}? If you believe to be one, we strongly encourage you to become
+             our contributor and start sharing your knowledge of {{crop.crop_name}} ultimately helping buyers and 
+             suppliers around the globe make informed business decisions. If you’re interested,
+              please apply to become a content contributor on AgriBizz now.</p>
+          <a href="contact" class="famie-btn btn rounded mx-auto">Become Our contributor</a>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<section>
+  <div class="container">
+<!-- Section Heading -->
+    <div class="section-heading text-center">
+      <h2>General Details of <span>{{crop.crop_name}}</span></h2>
+      <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+    </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Product Description
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a></h6>
+              <div id="collapseOne" class="accordion-content collapse show">
+                <p>{{crop.crop_description | safe }}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Varieties
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseTwo" class="accordion-content collapse">
+                <p>{{crop.varieties | safe}}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Processing Type
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseThree" class="accordion-content collapse">
+                <p>{{crop.processing_type | safe}}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" aria-expanded="true" aria-controls="collapseFour" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseFour">Quality Factor
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseFour" class="accordion-content collapse">
+                <p>{{crop.quality_factor | safe}}</p>
+              </div>
+            </div>
+
+            <!-- Single Accordian Area -->
+            <div class="panel single-accordion">
+              <h6>
+                <a role="button" aria-expanded="true" aria-controls="collapseFive" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseFive">Price Factor
+                  <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                  <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                </a>
+              </h6>
+              <div id="collapseFive" class="accordion-content collapse">
+                <p>{{crop.price_factor | safe}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- ##### FAQ Area End ##### -->
+
+
+  <!-- ##### Our Products Area Start ##### -->
+  <section class="our-products-area section-padding-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- Heading -->
+          <div class="section-heading text-center">
+            <p>Related Information</p>
+            <h2><span>People</span> Also View</h2>
+            <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <!-- Related Products Area -->
+          {% for item in related %}
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+            <!-- Product Thumbnail -->
+            <div class="product-thumbnail shadow">
+              <img src="{{item.thumbnail.url}}" alt="" style="width: 270px; height: 350px;">
+              <!-- Product Meta Data -->
+              <div class="product-meta-data">
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <!-- Product Description -->
+            <div class="product-desc text-center pt-4">
+              <a href="{% url 'crop_details' item.slug %}" class="product-title">{{item.crop_name}}</a>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="gotoshop-btn text-center wow fadeInUp" data-wow-delay="900ms">
+            <a href="{% url 'crops' %}" class="btn famie-btn">View All Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ##### Our Products Area End ##### -->
+
+{% endblock content %}
