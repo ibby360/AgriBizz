@@ -24,7 +24,7 @@
         <div class="col-12 mb-50">
           <!-- practice Details Content -->
           <div class="news-details-content text-center">
-            <h6>Post on <a href="#" class="post-date">{{ post.date_created | timesince }}</a> Ago <a href="#" class="post-author">| {{ post.author }}</a></h6>
+            <h6>Post on <a href="#" class="post-date">{{ post.date_created | date:"DATE_FORMAT" }}</a> <a href="#" class="post-author">| {{ post.author }}</a></h6>
             <h2 class="post-title">{{ post.title }}</h2>
             <div class="benefits-thumbnail mb-50">
                     <img src="{{ post.thumbnail.url}}" alt="">
