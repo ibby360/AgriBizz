@@ -2880,3 +2880,7 @@ Single Product Thumbnail Zoom In
     max-width: 20%;
 }
 
+
+#myDiv a:hover {
+    border-bottom: 1px solid #77b122;
+}
