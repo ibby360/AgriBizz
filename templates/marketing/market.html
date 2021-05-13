@@ -108,7 +108,7 @@
 
               	</div>
                 <div class="card-footer">
-                  <i class="icon_calendar pr-2"></i><small class="text-muted">{{ product.date_created | timesince }} Ago</small>
+                  <i class="icon_calendar pr-2"></i><small class="text-muted">{{ product.date_created | date:"DATE_FORMAT" }}</small>
                 </div>
 
                 

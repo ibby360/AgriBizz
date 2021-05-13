@@ -48,7 +48,7 @@
               </tr>
               <tr>
                 <th scope="row" class="text-uppercase">Categories</th>
-                <td>Jacob</td>
+                <td>{{crop.category}}</td>
               </tr>
             </tbody>
           </table>
@@ -162,7 +162,7 @@
   <!-- ##### FAQ Area End ##### -->
 
 
-  <!-- ##### Our Products Area Start ##### -->
+  <!-- ##### Our crops Area Start ##### -->
   <section class="our-products-area section-padding-100">
     <div class="container">
       <div class="row">
@@ -178,7 +178,7 @@
 
       <div class="row">
 
-        <!-- Related Products Area -->
+        <!-- Related Crops Area -->
           {% for item in related %}
         <div class="col-12 col-sm-6 col-lg-3">
           <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
@@ -203,12 +203,12 @@
       <div class="row">
         <div class="col-12">
           <div class="gotoshop-btn text-center wow fadeInUp" data-wow-delay="900ms">
-            <a href="{% url 'crops' %}" class="btn famie-btn">View All Products</a>
+            <a href="{% url 'crops' %}" class="btn famie-btn">View All Crops</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- ##### Our Products Area End ##### -->
+  <!-- ##### Our Crops Area End ##### -->
 
 {% endblock content %}

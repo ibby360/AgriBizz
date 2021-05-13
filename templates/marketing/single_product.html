@@ -27,7 +27,7 @@
   <div class="container pb-5">
     <div class="col-lg-8 mx-auto border p-3 main-section shadow bg-white">
         <div class="row hedding m-0 pl-3 pt-0 pb-3">
-            Posted on: {{ item.date_created | timesince }} ago
+            Posted on: {{ item.date_created | date:"DATE_FORMAT" }}
         </div>
         <div class="row m-0">
             <div class="col-lg-4 left-side-product-box pb-3">
