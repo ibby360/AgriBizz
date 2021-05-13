@@ -70,7 +70,7 @@ def news_view(request):  # View for the news page
 def practice_intro(request,):  # Practice intro page view
     intro_page = PracticeIntro.objects.get(pk=1)
     context = {'intro_page': intro_page}
-    return render(request, 'practice_intro.html', context)
+    return render(request, 'blog/practice_intro.html', context)
 
 
 def news_details(request, slug):  # News details page veiw
