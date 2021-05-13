@@ -21,6 +21,7 @@ def upload_location(instance, filename):
 class Crops(models.Model):
     STATUS_CHOICE = (('draft', 'Draft'), ('published', 'Published'),)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, default='')
+    category = models.CharField(max_length=150, blank=True)
     crop_name = models.CharField(max_length=100)
     slug = models.SlugField(null=True, unique=True)
     thumbnail = models.ImageField(
