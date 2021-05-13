@@ -17,7 +17,7 @@
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a href=/><i class="fa fa-home"></i> Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Crops</li>
         </ol>
       </nav>
@@ -73,7 +73,7 @@
               <div class="single-product-area mb-50">
                 <!-- Product Thumbnail -->
                 <div class="product-thumbnail shadow">
-                  <img src="{{ crop.thumbnail.url }}" alt="" style="width: 270px; height: 350px;">
+                  <img src="{{ crop.thumbnail.url }}" alt="">
                   <!-- Product Meta Data -->
                   <div class="product-meta-data">
                     <a href="{% url 'crop_details' crop.slug %}" data-toggle="tooltip" data-placement="top" title="Open"><i class="fa fa-arrow-right"></i></a>
