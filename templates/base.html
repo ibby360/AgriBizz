@@ -10,23 +10,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>AgriBizz - Farming &amp; Business Information Service | Home</title>
+    <title>AgriBizz - Farming &amp; Business Information Service</title>
     <!-- Favicon -->
     <link rel="icon" href="{% static 'img/core-img/favicon2.ico' %}">
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <!-- Localizejs Translation -->
-    {% comment %} <script src="https://global.localizecdn.com/localize.js"></script>
+        
+    <script src="https://global.localizecdn.com/localize.js"></script>
     <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","getSourceLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
-
+    
     <script>
       Localize.initialize({
-        key: 'remALMpqGPVAk',
+        key: 'LZ3oGMnPMGAac',
         rememberLanguage: true,
         autoApprove: true,
       });
-    </script> {% endcomment %}
+    </script>
 
+  
         
 </head>
 
@@ -81,7 +83,7 @@
                                 <!-- Navbar Start -->
                                 <div class="classynav" id="myDiv">
                                     <ul>
-                                        <li class="active"><a href="/">Home</a></li>
+                                        <li class=""><a href="/">Home</a></li>
                                         <li><a href="{% url 'about' %}">About</a></li>
                                         <li><a href="{% url 'farming_practice' %}">Blog</a>
                                             <ul class="dropdown">
@@ -91,7 +93,7 @@
                                             </ul>
                                         </li>
 
-                                        <li><a href="{% url 'products' %}">Products</a></li>
+                                        <li><a href="{% url 'crops' %}">Crops</a></li>
                                         <li><a href="{% url 'market' %}">Market</a>
                                             <ul class="dropdown">
                                               <li><a href="{% url 'market' %}">MarketPlace</a></li>
@@ -137,7 +139,7 @@
                     <!-- Single Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="footer-widget mb-80">
-                            <p>Lorem ipsum dolor sit amet, consecte stare adipiscing elit. In act honcus risus atiner Pellentesque risus.</p>
+                            <p>The ultimate goal of farming is not the growing of crops, but the cultivation and perfection of human beings.</p>
                             <div class="contact-info">
                                 <p><i class="fa fa-map-pin" aria-hidden="true"></i><span>Dar Es Salaam, Tanzania</span></p>
                                 <p><i class="fa fa-envelope" aria-hidden="true"></i><span>ibbypapi@gmail.com</span></p>
@@ -153,7 +155,6 @@
               <!-- Footer Widget Nav -->
               <nav class="footer-widget-nav text-white">
                 <ul>
-                  <li><a href="http://exts.kilimo.go.tz/" target="_blank">Mobile Kilimo</a></li>
                   <li><a href="https://www.kilimo.go.tz/" target="_blank">Ministry of Agriculture</a></li>
                   <li><a href="#">Agriculture Sector Stakeholders Database </a></li>
                   <li><a href="http://frs.kilimo.go.tz/" target="blank">Farmers Registration System</a></li>
