@@ -1,0 +1,110 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+  <!-- ##### Breadcrumb Area Start ##### -->
+  <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <div class="breadcrumb-text">
+            <h2>Crops</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="famie-breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Crops</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!-- ##### Breadcrumb Area End ##### -->
+
+  <!-- ##### Area Start ##### -->
+  <section class="shop-area section-padding-0-100">
+    <div class="container">
+
+
+      <div class="row">
+        <!--  Sidebar Area -->
+        <div class="col-12 col-md-4 col-lg-3">
+
+          <!-- Area -->
+          <div class=" mb-50">
+            <h5 class="mb-30">Farming Practice</h5>
+            <!-- Cart Table -->
+            <div class="practice-table clearfix">
+              <table class="table table-responsive">
+                <!-- tbody -->
+                <tbody>
+                 {% for post in posts %}
+                  <!-- Single Table Row -->
+                  <tr>
+                    <td class="practice_img">
+                      <a href="{% url 'practice_details' post.slug %}"><img src="{{post.thumbnail.url}}" alt="farming_practice"></a>
+                    </td>
+                    <td class="practice_desc">
+                      <p>{{post.title}}</p>
+                    </td>
+                  </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+            </div>
+
+            <!-- Farming Practice -->
+            <a href="{% url 'farming_practice' %}" class="btn famie-btn famie-practice-btn mt-30 w-100">View More</a>
+          </div>
+
+        </div>
+
+        <!-- Products Area -->
+        <div class="col-12 col-md-8 col-lg-9">
+          <div class="row">
+            {% for crop in queryset %}
+
+            <!-- Single Product Area -->
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="single-product-area mb-50">
+                <!-- Product Thumbnail -->
+                <div class="product-thumbnail shadow">
+                  <img src="{{ crop.thumbnail.url }}" alt="" style="width: 270px; height: 350px;">
+                  <!-- Product Meta Data -->
+                  <div class="product-meta-data">
+                    <a href="{% url 'crop_details' crop.slug %}" data-toggle="tooltip" data-placement="top" title="Open"><i class="fa fa-arrow-right"></i></a>
+                  </div>
+                </div>
+                <!-- Product Description -->
+                <div class="product-desc text-center pt-4">
+                  <a href="{% url 'crop_details' crop.slug %}" class="product-title">{{crop.crop_name}}</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+
+        <!-- pagination -->
+          <nav>
+            <ul class="pagination wow fadeInUp" data-wow-delay="900ms">
+              {% if queryset.has_previous %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.privious_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+              {% endif %}
+              <li class="page-item active"><a class="page-link" href="?{{ page_request_var }}={{ queryset.number }}">{{ queryset.number}}</a></li>
+              {% if queryset.has_next %}
+              <li class="page-item"><a class="page-link" href="?{{ page_request_var }}={{ queryset.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+              {% endif %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ##### Area End ##### -->
+{% endblock content %}
