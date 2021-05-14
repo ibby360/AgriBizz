@@ -14,9 +14,10 @@ class SellProduct(forms.ModelForm):
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Full Name'}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '071-558-2771'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Phone.. e.g 0717000011'}),
             'region': forms.Select(attrs={'class': 'form-control', 'placeholder': '--SELECT--'}),
-            'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your District and Ward'}),
+            'district': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your District'}),
+            'ward': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Ward'}),
 
 
             'product_name': forms.Select(attrs={'class': 'form-control'}),
