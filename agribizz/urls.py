@@ -44,7 +44,7 @@ urlpatterns = [
     # Marketing
     path('market', market, name='market'),
     path('post_product', post_product, name='post_product'),
-    path('single_product/<int:pk>', single_product, name='single_product'),
+    path('product/<int:pk>', single_product, name='single_product'),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
