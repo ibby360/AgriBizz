@@ -37,27 +37,31 @@
             {% csrf_token %}
               <div class="form-row">
                 <div class=" form-group col">
-                    <label for="inputFullName">Full name</label>
+                    <label for="inputFullName">Full name <span class="text-danger">*</span></label>
                     {{form.full_name}}
                 </div>
                 <div class="form-group col">
-                    <label for="inputEmail">Email</label>
+                    <label for="inputEmail">Email</span></label>
                     {{form.email}}
                 </div>
                 <div class="form-group col">
-                    <label for="inputPhoneNumber">Phone Number</label>
+                    <label for="inputPhoneNumber">Phone Number <span class="text-danger">*</span></label>
                     {{form.phone_number}}
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col">
-                    <label for="inputRegion">Region</label>
+                    <label for="inputRegion">Region <span class="text-danger">*</span></label>
                     {{form.region}}
                 </div>
                 <div class="col">
-                    <label for="inputLocation">Location</label>
-                    {{form.location}}
+                    <label for="inputDistrict">District <span class="text-danger">*</span></label>
+                    {{form.district}}
+                </div>
+                <div class="col">
+                    <label for="inputWArd">Ward <span class="text-danger">*</span></label>
+                    {{form.ward}}
                 </div>
               </div>
               <!-- Personal Information Area End -->
@@ -66,26 +70,26 @@
               <h4>Product Details</h4>
               <div class="form-row">
                 <div class="form-group col">
-                    <label for="inputProduct">Product Name</label>
+                    <label for="inputProduct">Product Name <span class="text-danger">*</span></label>
                     {{form.product_name}}
                 </div>
                 <div class="col">
-                    <label for="Scale">Scale</label>
+                    <label for="Scale">Scale <span class="text-danger">*</span></label>
                     {{form.scale}}
                 </div>
                 <div class="col">
-                    <label for="inputQuantity">Amount</label>
+                    <label for="inputQuantity">Amount <span class="text-danger">*</span></label>
                     {{form.amount}}
                 </div>
                 <div class="col">
-                    <label for="inputPrice">Price</label>
+                    <label for="inputPrice">Price <span class="text-danger">*</span></label>
                     {{form.price}}
                 </div>
               </div>
               <!-- Product Details Area End -->
             <div class="form-row">
                 <div class="form-group col-3">
-                    <label for="file"> Select Image</label>
+                    <label for="file"> Select Product Image</label>
                     {{form.thumbnail}}
                 </div>
             </div>
