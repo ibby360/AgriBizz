@@ -28,7 +28,7 @@ def crops(request):
 
 def crop_details(request, slug):
     crop = Crops.objects.get(slug = slug)
-    related = Crops.objects.order_by('-date_created')[:4]
+    related = Crops.objects.order_by('-date_created').exclude(slug=slug)[:4]
     context = {
         'crop': crop,
         'related': related,
