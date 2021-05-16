@@ -1,8 +1,9 @@
 from django.contrib import admin
-from blog.models import BlogPost, Author, News, PracticeIntro, Comment
+from blog.models import BlogPost, Author, News, PracticeIntro, Comment, NewsComment
 
 # Register your models here.
 admin.site.register(Author)
+admin.site.register(NewsComment)
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'publish', 'status')
