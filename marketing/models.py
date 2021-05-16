@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models.fields import CharField, SmallIntegerField
 from django.db.models.fields.files import ImageField
-from mtaa import tanzania
 
 
 class PostProduct(models.Model):
