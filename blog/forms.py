@@ -5,7 +5,7 @@ from django.forms import widgets
 from tinymce.widgets import TinyMCE
 # from .models import _your_model_
 
-from blog.models import Comment
+from blog.models import Comment, NewsComment
 
 
 class TinyMCEWidget(TinyMCE):
@@ -28,6 +28,18 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
+        fields = ['name', 'email', 'message']
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name*'}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Email*'}),
+            'message': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Message*'}),
+
+        }
+
+class NewsCommentForm(forms.ModelForm):
+    class Meta:
+        model = NewsComment
         fields = ['name', 'email', 'message']
 
         widgets = {
