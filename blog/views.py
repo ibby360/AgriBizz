@@ -4,7 +4,7 @@ from django.db.models import Count
 from django.http import request
 from django.shortcuts import render
 from blog.models import BlogPost, News, PracticeIntro, Comment
-from blog.forms import CommentForm
+from blog.forms import CommentForm, NewsCommentForm
 from django.contrib import messages
 # Create your views here.
 
@@ -65,7 +65,7 @@ def news_view(request):  # View for the news page
     context = {
         'queryset': paginated_queryset,
         'page_request_var': page_request_var,
-        'object_list': latest_pratice_post
+        'object_list': latest_pratice_post,
 
     }
     return render(request, "blog/news.html", context)
@@ -79,7 +79,21 @@ def practice_intro(request,):  # Practice intro page view
 
 def news_details(request, slug):  # News details page veiw
     news = News.objects.get(slug=slug)
+    comments = news.comments.filter(active=True)
+    # Comment posted
+    comment_form = NewsCommentForm(request.POST or None)
+    if request.method == "POST":
+        if comment_form.is_valid():
+            comment_form.instance.news = news
+            comment_form.save()
+            comment_form = NewsCommentForm()
+            messages.success(request, "Your comment was successfully uploaded. Wait for admin to aprove it.")
+
+        else:
+            comment_form = NewsCommentForm()
     context = {
-        'news': news
+        'news': news,
+        'comments': comments,
+        'comment_form': comment_form
     }
     return render(request, 'blog/news_details.html', context)
