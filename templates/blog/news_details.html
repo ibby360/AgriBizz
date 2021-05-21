@@ -23,7 +23,7 @@
             <div class="col-12 mb-50">
                 <!-- News Details Content -->
                 <div class="news-details-content text-center">
-                    <h6>Post on <a href="#" class="post-date">{{ news.date_created | date:"DATE_FORMAT" }}</a> <a href="#" class="post-author">| {{ news.author }}</a></h6>
+                    <h6>Post on <a href="#" class="post-date">{{ news.publish_date | date:"DATE_FORMAT" }}</a> <a href="#" class="post-author">| {{ news.author }}</a></h6>
                     <h2 class="post-title">{{ news.title }}</h2>
                     <div class="benefits-thumbnail mb-50">
                         <img src="{{ news.thumbnail.url}}" alt="" class="rounded">
