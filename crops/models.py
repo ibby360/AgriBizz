@@ -37,12 +37,10 @@ class Crops(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICE, default='draft')
 
 
-    def save(self, *args, **kwargs):
-        self.slug = self.slug or slugify(self.crop_name)
-        super().save(*args, **kwargs)
-
     class Meta:
         ordering = ('-publish',)
+        verbose_name = 'crop'
+        verbose_name_plural = 'crops'
 
     def __str__(self):
         return self.crop_name
