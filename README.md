@@ -9,6 +9,8 @@ AgriBizz is a web-base technology that aims to help farmers, breeders and fisher
 
 ![front](https://user-images.githubusercontent.com/83826268/119102353-9bc58680-ba22-11eb-8f1d-4e9be73e8e38.png)
 
+## [DEMO](https://agribizzz.pythonanywhere.com/)
+
 
 ## Running this project
 
