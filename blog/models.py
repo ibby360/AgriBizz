@@ -65,7 +65,7 @@ class Comment(models.Model):
     email = models.EmailField(blank=False,)
     message = models.TextField(blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['created_on']
@@ -111,7 +111,7 @@ class NewsComment(models.Model):
     email = models.EmailField(blank=False,)
     message = models.TextField(blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['created_on']
