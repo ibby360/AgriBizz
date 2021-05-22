@@ -1,5 +1,6 @@
 from django.core import paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db import reset_queries
 from django.db.models import Count
 from django.http import request
 from django.shortcuts import render
@@ -37,7 +38,7 @@ def practice_details(request, slug):  # View for the practice details page
         if comment_form.is_valid():
             comment_form.instance.post = post
             comment_form.save()
-            messages.success(request, "Your comment was successfully uploaded. Wait for admin to aprove it.")
+            comment_form = CommentForm()
 
         else:
             comment_form = CommentForm()
@@ -87,7 +88,6 @@ def news_details(request, slug):  # News details page veiw
             comment_form.instance.news = news
             comment_form.save()
             comment_form = NewsCommentForm()
-            messages.success(request, "Your comment was successfully uploaded. Wait for admin to aprove it.")
 
         else:
             comment_form = NewsCommentForm()
