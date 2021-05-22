@@ -49,11 +49,11 @@
                       <a href="{% url 'practice_details' post.slug %}"><img src="{{post.thumbnail.url}}" alt="farming_practice"></a>
                     </td>
                     <td class="practice_desc">
-                      <p>{{post.title}}</p>
+                      <p><a href="{% url 'practice_details' post.slug %}">{{post.title}}</a></p>
                     </td>
                   </tr>
-                </tbody>
                 {% endfor %}
+                </tbody>
               </table>
             </div>
 
