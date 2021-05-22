@@ -42,7 +42,10 @@ class NewsCommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_on', 'active')
     list_filter = ('active', 'created_on')
     search_fields = ('name', 'email', 'message')
-    actions = ['approve_comments']
+    actions = ['disapprove_comments', 'approve_comments']
+
+    def disapprove_comments(self, request, queryset):
+        queryset.update(active=False)
 
     def approve_comments(self, request, queryset):
         queryset.update(active=True)
