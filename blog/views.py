@@ -41,6 +41,7 @@ def practice_details(request, slug):  # View for the practice details page
             comment_form = CommentForm()
 
         else:
+            messages.error(request, "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'")
             comment_form = CommentForm()
 
     context = {
@@ -90,6 +91,7 @@ def news_details(request, slug):  # News details page veiw
             comment_form = NewsCommentForm()
 
         else:
+            messages.error(request, "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'")
             comment_form = NewsCommentForm()
     context = {
         'news': news,
