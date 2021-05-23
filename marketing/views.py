@@ -23,7 +23,10 @@ def post_product(request):
             form.save()
             return HttpResponseRedirect('market')
 
-    else:
+        else:
+            messages.error(request, "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+
+    else:    
         form = SellProduct()
     context = {
         'form': form,
