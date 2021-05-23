@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% block title %}{{item.product_name}}{% endblock title %}
+{% load static %} 
+{% block content %}
 
   <!-- ##### Breadcrumb Area Start ##### -->
   <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
