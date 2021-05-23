@@ -32,7 +32,7 @@ class CommentForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name*'}),
-            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Email*'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email*'}),
             'message': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Message*'}),
 
         }
@@ -44,7 +44,7 @@ class NewsCommentForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name*'}),
-            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Email*'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email*'}),
             'message': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Message*'}),
 
         }
