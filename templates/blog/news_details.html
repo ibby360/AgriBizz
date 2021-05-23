@@ -49,6 +49,14 @@
 
                 <!-- Comment Area Start -->
                 <div class="comment_area clearfix mb-50"> 
+                    {% for message in messages  %}            
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Invalid Submition: </strong> {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    {% endfor %} 
 
                     <!-- Title -->
                     <h3 class="mb-50">{{comments.count}} Comments</h3>
