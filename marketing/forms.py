@@ -4,6 +4,7 @@ from django.db.models.fields import TextField
 from django.forms import ModelForm
 from django.forms.widgets import NumberInput, Select
 from marketing.models import PostProduct
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class SellProduct(forms.ModelForm):
@@ -13,7 +14,7 @@ class SellProduct(forms.ModelForm):
 
         widgets = {
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Full Name'}),
-            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Phone.. e.g 0717000011'}),
             'region': forms.Select(attrs={'class': 'form-control', 'placeholder': '--SELECT--'}),
             'district': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your District'}),
