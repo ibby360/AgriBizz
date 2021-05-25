@@ -13,17 +13,19 @@ class SellProduct(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Full Name'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Fist Name'}),
+            'middle_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Middle Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Last Name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Phone.. e.g 0717000011'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Phone.. e.g +255700000017'}),
             'region': forms.Select(attrs={'class': 'form-control', 'placeholder': '--SELECT--'}),
             'district': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your District'}),
             'ward': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Ward'}),
 
 
             'product_name': forms.Select(attrs={'class': 'form-control'}),
-            'scale': forms.Select(attrs={'class': 'form-control'}),
-            'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter Amount'}),
+            'unit': forms.Select(attrs={'class': 'form-control'}),
+            'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter Quantity'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter Price'}),
 
 
