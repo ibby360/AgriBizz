@@ -43,7 +43,7 @@
                             <p class="m-0 p-0">{{ item.product_name }}</p>
                         </div>
                         <div class="col-lg-12">
-                            <p class="m-0 p-0 price-pro">TSH {{item.price}}</p>
+                            <p class="m-0 p-0 price-pro">TSH {{item.price | floatformat:2}}</p>
                             <hr class="p-0 m-0">
                         </div>
                         <div class="col-lg-12 pt-2">
@@ -63,11 +63,11 @@
                                 <td>{{ item.region }}, {{ item.district }}, {{ item.ward }}</td>
                               </tr>
                               <tr>
-                                <th scope="row" class="text-uppercase">Scale</th>
+                                <th scope="row" class="text-uppercase">Unit</th>
                                 <td>{{ item.scale }}</td>
                               </tr>
                               <tr>
-                                <th scope="row" class="text-uppercase">Amount</th>
+                                <th scope="row" class="text-uppercase">Quantity</th>
                                 <td>{{ item.amount }}</td>
                               </tr>
                             </tbody>
