@@ -61,7 +61,9 @@ class PostProduct(models.Model):
     )
 
     # Person's Details
-    full_name = models.CharField(max_length=50, null=False, blank=False)
+    first_name = models.CharField(max_length=50, null=False, blank=False, default='')
+    middle_name = models.CharField(max_length=50, null=False, blank=False, default='')
+    last_name = models.CharField(max_length=50, null=False, blank=False, default='')
     email = models.EmailField(max_length=254,blank= True, null=True )
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=False)
@@ -75,8 +77,8 @@ class PostProduct(models.Model):
 
     # Product's Detials
     product_name = models.CharField(max_length=100, choices= PRODUCT_CHOICES,)
-    scale = models.CharField(max_length=50, choices=SCALE_CHOICES,)
-    amount = models.IntegerField(null=False, blank=False, default='Enter Amount')
+    unit = models.CharField(max_length=50, choices=SCALE_CHOICES,)
+    quantity = models.IntegerField(null=False, blank=False, default='Enter Amount')
     price = models.FloatField(max_length=100, null=False, blank=False, default='Enter Price')
     date_created = models.DateTimeField(auto_now_add = True)
     thumbnail = ImageField(upload_to='static/img/', default='No-Image-Placeholder.svg')
