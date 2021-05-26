@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'blog',
     'crops',
     'marketing',
+    'accounts',
     'tinymce',
     'phonenumber_field',
 ]
