@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http.response import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
+
 from marketing.models import PostProduct
 from marketing.forms import SellProduct
 
 from django.contrib import messages
 
 # Create your views here.
-
 
 def market(request):
     products = PostProduct.objects.order_by('-date_created')
@@ -15,7 +16,7 @@ def market(request):
     }
     return render(request, 'marketing/market.html', context)
 
-
+@login_required(login_url='login')
 def post_product(request):
     if request.method == "POST":
         form = SellProduct(request.POST, request.FILES)
