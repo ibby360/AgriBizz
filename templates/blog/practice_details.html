@@ -92,7 +92,7 @@
 
             <!-- Title -->
             <h3 class="mb-50">Leave A Comment</h3>
-
+          {% if user.is_authenticated %}
             <!-- Reply Form -->
             <div class="contact-form-area">
               <form method="post" id="myForm">
@@ -117,6 +117,12 @@
               </form>
             </div>
           </div>
+          {% else %}
+            <div class="login">
+              <h6 class="custom_title">Please log in to leave your comment.</h6>
+              <a href="{% url 'login'%}" class="btn famie-btn">Log In</a>
+            </div>
+          {% endif %}
 
         </div>
       </div>
