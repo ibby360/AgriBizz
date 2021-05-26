@@ -101,6 +101,12 @@
                                             </ul>
                                         </li>
                                         <li><a href="{% url 'contact-view' %}">Contact</a></li>
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'logout' %}">Log Out</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'login' %}">Log In</a></li>
+                                        {% endif %}
+
                                     </ul>
                                     <!-- Search Icon -->
                                     <div id="searchIcon">
