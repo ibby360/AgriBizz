@@ -4,8 +4,7 @@
 - Python 3+
 - Pip
 
-## Project Summary:
-AgriBizz is a web-base technology that aims to help farmers, breeders and fishermen to get agricultural and business information and also access their crop markets through their mobile phones, tablets, Desktop computers and laptop through the web browsers. This will enable them to reach the markets and especially the buyers of their products and agricultural products without the hassle of exporting the products to the market.
+## Project Screenshot:
 
 ![front](https://user-images.githubusercontent.com/83826268/119102353-9bc58680-ba22-11eb-8f1d-4e9be73e8e38.png)
 
