@@ -119,6 +119,10 @@
                                                   <i class="icon_cart_alt" aria-hidden="true"></i>
                                                   <span class="cart-quantity">{{total_items}}</span>
                                                 </a>
+                                                {% else %}
+                                                    <a href="{% url 'cart:cart_detail' %}">
+                                                        <i class="icon_cart_alt" aria-hidden="true"></i>
+                                                    </a>
                                             {% endif %}
                                         {% endwith %}
                                     </div>
