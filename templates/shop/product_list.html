@@ -1,0 +1,198 @@
+{% extends 'base.html' %} 
+{% block title %}Market Place{% endblock title %}
+{% load static %} 
+{% block content %}
+
+      <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>MarketPlace</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">MarketPlace</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- About Area -->
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- About Us Content ##### -->
+        <div class="col-12 col-lg-6">
+          <div class="about-us-content mb-100">
+            <!-- Section Heading -->
+            <div class="section-heading">
+              <p>AgriBizz</p>
+              <h2>MarketPlace</h2>
+              <img src="{% static 'img/core-img/decor.png' %}" alt="">
+            </div>
+            <p>AgriBizz MarketPlace is a web platform that will help farmers to get market of their products without walking around by simply using mobile phones browser.
+              This will enable them to reach the markets and especially the buyers of their products and agricultural products without the hassle of exporting the products to the market.
+              Thus, through this platform farmers will be able to provide crop information, crop prices and their location so that buyers can reach them more easily.
+               This will open and connect more retailers and consumers in the country and reduce the cost of access to agricultural products.
+            </p>
+          </div>
+        </div>
+
+        <!-- Famie -->
+        <div class="col-12 col-lg-6">
+          <div class="about-us-thumbnail mb-100">
+            <img src="{% static 'img/bg-img/market.jpg' %}" alt="strawberries are harvested">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- About Area End ##### -->
+
+  <!-- ##### Shop Area Start ##### -->
+  <section class="shop-area section-padding-0-100">
+    <div class="container">
+      <div class="row">
+          <div class="col-12">
+            <!-- Section Heading -->
+            <div class="section-heading text-center">
+                <p>AgriBizz MarketPlace</p>
+                <h2>Highest Quality <span>Products</span></h2>
+                <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <!-- Shop Sidebar Area -->
+        <div class="col-12 col-md-4 col-lg-3">
+
+          <!-- Shopping Cart -->
+          <div class="shopping-cart mb-50">
+            <h5 class="mb-30">Shopping Cart</h5>
+            <!-- Cart Table -->
+            <div class="cart-table clearfix">
+              <table class="table table-responsive">
+                <!-- tbody -->
+                <tbody>
+                  <!-- Single Table Row -->
+                  <tr>
+                    <td class="cart_product_img">
+                      <a href="#"><img src="img/bg-img/34.jpg" alt="Product"></a>
+                    </td>
+                    <td class="cart_product_desc">
+                      <p>Bayonne Ham</p>
+                      <h6>1 x $39.99</h6>
+                    </td>
+                    <td class="pro-close">
+                      <a href="#"><i class="icon_close"></i></a>
+                    </td>
+                  </tr>
+                  <!-- Single Table Row -->
+                  <tr>
+                    <td class="cart_product_img">
+                      <a href="#"><img src="img/bg-img/35.jpg" alt="Product"></a>
+                    </td>
+                    <td class="cart_product_desc">
+                      <p>Bayonne Ham</p>
+                      <h6>1 x $39.99</h6>
+                    </td>
+                    <td class="pro-close">
+                      <a href="#"><i class="icon_close"></i></a>
+                    </td>
+                  </tr>
+                  <!-- Single Table Row -->
+                  <tr>
+                    <td class="cart_product_img">
+                      <a href="#"><img src="img/bg-img/36.jpg" alt="Product"></a>
+                    </td>
+                    <td class="cart_product_desc">
+                      <p>Bayonne Ham</p>
+                      <h6>1 x $39.99</h6>
+                    </td>
+                    <td class="pro-close">
+                      <a href="#"><i class="icon_close"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- SubTotal -->
+            <div class="cart-summary d-flex align-items-center justify-content-between">
+              <div class="sub-total">
+                <h6>SUBTOTAL</h6>
+              </div>
+              <div class="total-price">
+                <h6>$52.99</h6>
+              </div>
+            </div>
+            <!-- Checkout -->
+            <a href="#" class="btn famie-btn checkout-btn mt-30 w-100">Checkout</a>
+          </div>
+
+          <!-- Single Widget Area -->
+          <div class="single-widget-area">
+            <!-- Title -->
+            <h5 class="widget-title">Categories</h5>
+            <!-- Tags -->
+            <ul class="famie-tags">
+              <li {% if not category %} class="active"{% endif %}><a href="{% url 'shop:product_list' %}">All product</a></li>
+              {% for c in categories %}
+                <li {% if category.slug == c.slug %}class="active"{% endif %}><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Shop Products Area -->
+        <div class="col-12 col-md-8 col-lg-9">
+          <div class="row">
+            {% for product in products %}
+            <!-- Single Product Area -->
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="single-product-area mb-50">
+                <!-- Product Thumbnail -->
+                <div class="product-thumbnail">
+                  <img src="{% if product.image %}{{product.image.url}} {% else %}{% static '/blog/images/No-Image-Placeholder.svg' %}{% endif %}" alt="">
+                  <!-- Product Meta Data -->
+                  <div class="product-meta-data">
+                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
+                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon_cart_alt"></i></a>
+                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="arrow_left-right_alt"></i></a>
+                  </div>
+                </div>
+                <!-- Product Description -->
+                <div class="product-desc text-center pt-4">
+                  <a href="{{product.get_absolute_url}}" class="product-title">{{product.name}}</a>
+                  <h6 class="price">${{product.price}}</h6>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!-- Pagination -->
+          <nav>
+            <ul class="pagination mb-0 mt-50">
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ##### Shop Area End ##### -->
+{% endblock content %}

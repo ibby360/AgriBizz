@@ -1,0 +1,66 @@
+{% extends 'base.html' %} 
+{% block title %}{{product.name}}{% endblock title %}
+{% load static %} 
+{% block content %}
+
+  <!-- ##### Breadcrumb Area Start ##### -->
+  <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'img/bg-img/breadcrumb.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <div class="breadcrumb-text">
+            <h2>Products</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="famie-breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Products</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <!-- ##### Breadcrumb Area End ##### -->
+
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-md-5">
+        <img class="rounded" src="{% if product.image %}{{product.image.url}} {% else %}{% static '/blog/images/No-Image-Placeholder.svg' %}{% endif %}" alt="">
+      </div>
+
+      <div class="col-md-7">
+        <!-- Product Description -->
+        <div class="product-description">
+          <ul class="famie-tags">
+            <li><a href="{{ product.category.get_absolute_url }}">{{product.category}}</a></li>
+          </ul>
+          <h1>{{product.name}}</h1>
+          <p>{{product.description | linebreaks}}</p>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>TZS {{product.price}}</span>
+          {% comment %} <a href="#" class="btn famie-btn">Add to cart</a> {% endcomment %}
+        </div>
+        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+          {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-2 pt-1">
+                {{cart_product_form.quantity}}
+              </div>
+              <div class="form-group col-md-6">
+                <input class="btn famie-btn" type="submit" name="" value="Add to cart">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
