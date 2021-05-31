@@ -1,0 +1,77 @@
+{% extends 'base.html' %} 
+{% block title %}Checkout{% endblock title %}
+{% load static %} 
+{% block content %}
+
+<section class="section-padding-100-50">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mr-auto">
+        <form method="post">
+          {% csrf_token %}
+          {{form.errors}}
+          <div class="form-group">
+            <label for="FirstName">First Name</label>
+            {{form.first_name}}
+            <small id="FirstName" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="LastName">Last Name</label>
+            {{form.last_name}}
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            {{form.email}}
+          </div>
+          <div class="form-group">
+            <label for="Address">Address</label>
+            {{form.address}}
+          </div>
+          <div class="form-group">
+            <label for="Address2">Address2</label>
+            {{form.address2}}
+          </div>
+          <div class="form-group">
+            <label for="City">City</label>
+            {{form.city}}
+          </div>
+          <div class="form-group">
+            <label for="orderNote">Order notes</label>
+            {{form.order_notes}}
+          </div>
+          <button type="submit" class="btn famie-btn">Place Order</button>
+        </form>
+      </div>
+
+      <div class="col-md-5">
+        <div class="container">
+          <table class="table table-borderless bg-gray">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Cart </th>
+                <th colspan="2" scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for item in cart %}
+              <tr>
+                <td>{{ item.quantity }}x {{ item.product.name }}</td>
+                <td colspan="2"></td>
+                <td>{{ item.total_price }}</td>
+              </tr>
+            {% endfor %}
+              <tr class="border-top">
+                <td><h6>Total</h6></td>
+                <td colspan="2"></td>
+                <td><h6>TZS {{ cart.get_total_price }}</h6></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
