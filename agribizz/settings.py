@@ -56,6 +56,10 @@ INSTALLED_APPS = [
     'crops',
     'marketing',
     'accounts',
+    'shop',
+    'cart',
+    'orders',
+    'payment',
     'tinymce',
     'phonenumber_field',
 ]
@@ -85,6 +89,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
 
@@ -189,3 +194,23 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Cart session
+CART_SESSION_ID = 'cart'
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = env('BRAINTREE_MERCHANT_ID')
+BRAINTREE_PUBLIC_KEY = env('BRAINTREE_PUBLIC_KEY')
+BRAINTREE_PRIVATE_KEY = env('BRAINTREE_PRIVATE_KEY')
+# Merchant ID
+# Public Key
+# Private key
+import braintree
+BRAINTREE_CONF = braintree.Configuration(
+braintree.Environment.Sandbox,
+BRAINTREE_MERCHANT_ID,
+BRAINTREE_PUBLIC_KEY,
+BRAINTREE_PRIVATE_KEY
+)
