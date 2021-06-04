@@ -29,6 +29,13 @@ urlpatterns = [
 
     # Cart
     path('cart/', include('cart.urls', namespace='cart')),
+    
+    # Orders
+    path('orders/', include('orders.urls', namespace='orders')),
+
+    # Payment
+    path('payment/', include('payment.urls', namespace='payment')),
+    
     #Shop App
     path('shop/', include('shop.urls', namespace='shop')),
 
