@@ -26,7 +26,6 @@ def checkout(request):
             # redirect for payment
             return redirect(reverse('payment:process'))
 
-            # return render(request, 'orders/successful.html', {'order': order})
     else:
         form = OrderCreateForm()
 
