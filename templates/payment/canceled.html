@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Payment Canceled{% endblock title %}
+{% load static %}
+{% block content %}
+
+<style>
+    p{
+        font-size: 1.5rem;
+    }
+</style>
+
+<section class="section-padding-80-0">
+    <div class="container text-center pb-5">
+        <h1>Sorry!</h1>
+        <p>Your payment has not been processed <strong>{{order.id}}</strong></p>
+        <p>There was a problem processing your payment.</p>
+        <div>
+            <a href="{% url 'shop:product_list' %}" class="btn famie-btn">Continue Shopping</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content%}
