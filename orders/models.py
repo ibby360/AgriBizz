@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms.models import BaseInlineFormSet
 from shop.models import Product
 # Create your models here.
 class Order(models.Model):
@@ -36,6 +37,7 @@ class Order(models.Model):
     address2 = models.CharField(max_length=150)
     city = models.CharField(max_length=150, choices=CHOICES)
     order_notes = models.TextField()
+    braintree_id = models.CharField(max_length=150, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
@@ -45,6 +47,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f'Order {self.id}'
+    
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.items.all())    
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
