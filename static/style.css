@@ -702,6 +702,10 @@ input:focus {
   line-height: 15px;
 }
 
+.header-area #cartIcon a:hover{
+  color: #77b122;
+}
+
 .search-form {
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;
@@ -3002,7 +3006,7 @@ Single Product Thumbnail Zoom In .single-product-area .product-thumbnail img {
   font-size: 0.7rem
 }
 
-.image {
+.image img{
   width: 3.5rem
 }
 
@@ -3017,4 +3021,44 @@ Single Product Thumbnail Zoom In .single-product-area .product-thumbnail img {
 
 .submit-btn:hover{
   cursor: pointer;
+  color: #77b122;
+}
+
+@media (min-width: 992px) and (max-width: 1280px) {
+  .product-thumbnail .product-list{
+    width: 270;
+    height: 350;
+  }
+}
+
+@media (max-width: 800px) {
+  .checkout-row {
+    flex-direction: column-reverse;
+  }
+  .checkout-table {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-widht: 800px) {
+  .cart-btn {
+    margin: 1rem!important;
+  }
+  
+}
+
+.cart-btn{
+  margin-bottom: 1rem;
+  padding-bottom: 3rem;
+}
+
+.pay-card {
+  border: none;
+  border-radius: 2%;
+}
+
+@media (max-width: 800px) {
+  .pay-card {
+    width: 85%;
+  }
 }
