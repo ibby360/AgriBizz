@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="card cart-card">
+    <div class="card cart-card shopping-cart">
       <div class="row cart-row">
           <dv class="col-md-12 cart">
             <div class="title">
@@ -22,37 +22,37 @@
                     <div class="col">
                         <h4><b>Cart </b></h4>
                     </div>
-                    {% for item in cart %}
-                    <div class="col column align-self-center text-right text-muted">{{item.quantity}} items</div>
-                    {% endfor %}
                 </div>
             </div>
             <div class="row cart-row border-top border-bottom">
               {% for item in cart %}
                 {% with product=item.product %}
                   <div class="row cart-row main align-items-center">
-                      <div class="col-2 column2"><a href="{{ product.get_absolute_url }}"><img class="img-fluid image" src="{% if product.image %} {{product.image.url}} {% else %} {% static '/blog/images/No-Image-Placeholder.svg' %} {% endif %}"></a></div>
-                      <div class="col column">
-                        <div class="row cart-row text-muted">{{product.name}}</div>
-                      </div>
-                      <div class="col column">
-                        <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                          {% csrf_token %}
-                          <div class="form-row">
-                            <div class="form-group pt-4">{{item.update_quantity_form.quantity}}</div>
-                            <div class="form-group col-md-2">{{item.update_quantity_form.override}}</div>
-                            <input class="submit-btn" type="submit" name="" value="&#10003;">
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col column">
-                        <form action"{% url 'cart:cart_remove' product.id %}" method="post">
-                          {% csrf_token %}
-                          <input class="submit-btn" type="submit" name="" value="&#10005;">
-                        </form>
-                      </div>
-                      <div class="col column">{{item.price}} </div>
-                      {% comment %} <div class="col column">&euro; {{item.total_price}} </div> {% endcomment %}
+                    <div class="col-2 column2 image-sec">
+                      <a href="{{ product.get_absolute_url }}" class="image">
+                        <img class="img-fluid" src="{% if product.image %} {{product.image.url}} {% else %} {% static '/blog/images/No-Image-Placeholder.svg' %} {% endif %}">
+                      </a>
+                    </div>
+                    <div class="col column description">
+                      <div class="row cart-row text-muted">{{product.name}}</div>
+                    </div>
+                    <div class="col column quantity">
+                      <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                          <div class="form-group pt-4">{{item.update_quantity_form.quantity}}</div>
+                          <div class="form-group col-md-2">{{item.update_quantity_form.override}}</div>
+                          <input class="submit-btn" type="submit" name="" value="&#10003;">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col column">
+                      <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                        {% csrf_token %}
+                        <input class="submit-btn" type="submit" name="" value="&#10005;">
+                      </form>
+                    </div>
+                    <div class="col column">{{item.price}} </div>
                   </div>
                 {% endwith %}
               {% endfor %}
@@ -60,15 +60,15 @@
             <table class="mt-2">
               <tbody>
                 <tr>
-                  <td class="col-md-10"><h6>Total</h6> </td>
+                  <td class="col-md-8"><h6>Total</h6> </td>
                   <td class="col-md-2"><h6>TZS {{cart.get_total_price}}</h6></td>
                 </tr>
               </tbody>
             </table>
   
-            <div class="p-3">
+            <div class="cart-btn">
               <a href="{% url 'shop:product_list' %}" class="btn famie-btn">Back to shop</a>
-              <a href="" class="btn famie-btn">Checkout</a>
+              <a href="{% url 'orders:checkout' %}" class="btn famie-btn">Checkout</a>
             </div>
           </dv>
       </div>

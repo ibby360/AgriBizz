@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>AgriBizz - Farming &amp; Business Information Service | {% block title %}{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %} | AgriBizz - Farming &amp; Business Information Service</title>
     <!-- Favicon -->
     <link rel="icon" href="{% static 'img/core-img/favicon2.ico' %}">
     <!-- Core Stylesheet -->
@@ -94,11 +94,11 @@
                                         </li>
 
                                         <li><a href="{% url 'crops' %}">Crops</a></li>
-                                        <li><a href="{% url 'market' %}">Market</a>
-                                            <ul class="dropdown">
-                                              <li><a href="{% url 'market' %}">MarketPlace</a></li>
-                                              <li><a href="{% url 'post_product' %}">Sell Products</a></li>
-                                            </ul>
+                                        <li><a href="{% url 'shop:product_list' %}">Market</a>
+                                            {% comment %} <ul class="dropdown"> {% endcomment %}
+                                              {% comment %} <li><a href="{% url 'shop:product_list' %}">MarketPlace</a></li> {% endcomment %}
+                                              {% comment %} <li><a href="{% url 'post_product' %}">Sell Products</a></li> {% endcomment %}
+                                            {% comment %} </ul> {% endcomment %}
                                         </li>
                                         <li><a href="{% url 'contact-view' %}">Contact</a></li>
                                         {% if user.is_authenticated %}
@@ -119,6 +119,10 @@
                                                   <i class="icon_cart_alt" aria-hidden="true"></i>
                                                   <span class="cart-quantity">{{total_items}}</span>
                                                 </a>
+                                                {% else %}
+                                                    <a href="{% url 'cart:cart_detail' %}">
+                                                        <i class="icon_cart_alt" aria-hidden="true"></i>
+                                                    </a>
                                             {% endif %}
                                         {% endwith %}
                                     </div>

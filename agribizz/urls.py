@@ -1,3 +1,4 @@
+from os import name
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
@@ -5,11 +6,11 @@ from mainApp import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from accounts.views import (dashboard, delete_product, products, register_page,
-                            login_page, logout_user, update_product
+from accounts.views import (customer, dashboard, delete_product, products, register_page,
+                            login_page, logout_user, sell_product, update_order, update_product
                             )
 from crops.views import crops, crop_details
-from marketing.views import market, post_product, single_product
+from marketing.views import market, order, post_product, single_product
 
 from blog.views import (farming_practice,
                         practice_details,
@@ -17,6 +18,7 @@ from blog.views import (farming_practice,
                         practice_intro,
                         news_details
                         )
+from shop.views import checkout
 
 handler404 = views.error_404
 
@@ -24,6 +26,18 @@ urlpatterns = [
     # Core
     path('admin/', admin.site.urls),
     path('tinymce/', include('tinymce.urls')),
+
+    # Cart
+    path('cart/', include('cart.urls', namespace='cart')),
+    
+    # Orders
+    path('orders/', include('orders.urls', namespace='orders')),
+
+    # Payment
+    path('payment/', include('payment.urls', namespace='payment')),
+    
+    #Shop App
+    path('shop/', include('shop.urls', namespace='shop')),
 
     # mainApp
     path('', views.index, name='index'),
@@ -49,6 +63,7 @@ urlpatterns = [
     path('market', market, name='market'),
     path('post_product', post_product, name='post_product'),
     path('product/<int:pk>', single_product, name='single_product'),
+    path('product_order/<int:pk>', order, name='product_order'),
 
     # Accounts
     path('register/', register_page, name="register"),
@@ -58,6 +73,9 @@ urlpatterns = [
     path('products/', products, name='products'),
     path('delete_product/<str:pk>', delete_product, name='delete_product'),
     path('update_product/<str:pk>', update_product, name='update_product'),
+    path('customer', customer, name='customer'),
+    path('sell_product', sell_product, name='sell_product'),
+    path('update_order/<str:pk>', update_order, name='update_order'),
 
 
     

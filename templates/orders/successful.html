@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    p{
+        font-size: 1.5rem;
+    }
+</style>
+
+<section class="section-padding-80-0">
+    <div class="container text-center pb-5">
+        <h1>Thank You!</h1>
+        <p>Your order has been successfull completed. Your order number is <strong>{{order.id}}</strong></p>
+        <p>We'll email your an oder confirmation with details.</p>
+        <div>
+            <a href="{% url 'shop:product_list' %}" class="btn famie-btn">Continue Shopping</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -76,78 +76,15 @@
         <!-- Shop Sidebar Area -->
         <div class="col-12 col-md-4 col-lg-3">
 
-          <!-- Shopping Cart -->
-          <div class="shopping-cart mb-50">
-            <h5 class="mb-30">Shopping Cart</h5>
-            <!-- Cart Table -->
-            <div class="cart-table clearfix">
-              <table class="table table-responsive">
-                <!-- tbody -->
-                <tbody>
-                  <!-- Single Table Row -->
-                  <tr>
-                    <td class="cart_product_img">
-                      <a href="#"><img src="img/bg-img/34.jpg" alt="Product"></a>
-                    </td>
-                    <td class="cart_product_desc">
-                      <p>Bayonne Ham</p>
-                      <h6>1 x $39.99</h6>
-                    </td>
-                    <td class="pro-close">
-                      <a href="#"><i class="icon_close"></i></a>
-                    </td>
-                  </tr>
-                  <!-- Single Table Row -->
-                  <tr>
-                    <td class="cart_product_img">
-                      <a href="#"><img src="img/bg-img/35.jpg" alt="Product"></a>
-                    </td>
-                    <td class="cart_product_desc">
-                      <p>Bayonne Ham</p>
-                      <h6>1 x $39.99</h6>
-                    </td>
-                    <td class="pro-close">
-                      <a href="#"><i class="icon_close"></i></a>
-                    </td>
-                  </tr>
-                  <!-- Single Table Row -->
-                  <tr>
-                    <td class="cart_product_img">
-                      <a href="#"><img src="img/bg-img/36.jpg" alt="Product"></a>
-                    </td>
-                    <td class="cart_product_desc">
-                      <p>Bayonne Ham</p>
-                      <h6>1 x $39.99</h6>
-                    </td>
-                    <td class="pro-close">
-                      <a href="#"><i class="icon_close"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- SubTotal -->
-            <div class="cart-summary d-flex align-items-center justify-content-between">
-              <div class="sub-total">
-                <h6>SUBTOTAL</h6>
-              </div>
-              <div class="total-price">
-                <h6>$52.99</h6>
-              </div>
-            </div>
-            <!-- Checkout -->
-            <a href="#" class="btn famie-btn checkout-btn mt-30 w-100">Checkout</a>
-          </div>
-
           <!-- Single Widget Area -->
           <div class="single-widget-area">
             <!-- Title -->
             <h5 class="widget-title">Categories</h5>
             <!-- Tags -->
             <ul class="famie-tags">
-              <li {% if not category %} class="active"{% endif %}><a href="{% url 'shop:product_list' %}">All product</a></li>
+              <li {% if not category %} class="active-cat"{% endif %}><a href="{% url 'shop:product_list' %}">All product</a></li>
               {% for c in categories %}
-                <li {% if category.slug == c.slug %}class="active"{% endif %}><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
+                <li {% if category.slug == c.slug %}class="active-cat"{% endif %}><a href="{{c.get_absolute_url}}">{{c.name}}</a></li>
               {% endfor %}
             </ul>
           </div>
@@ -156,31 +93,45 @@
 
         <!-- Shop Products Area -->
         <div class="col-12 col-md-8 col-lg-9">
-          <div class="row">
-            {% for product in products %}
-            <!-- Single Product Area -->
-            <div class="col-12 col-sm-6 col-lg-4">
-              <div class="single-product-area mb-50">
-                <!-- Product Thumbnail -->
-                <div class="product-thumbnail">
-                  <img src="{% if product.image %}{{product.image.url}} {% else %}{% static '/blog/images/No-Image-Placeholder.svg' %}{% endif %}" alt="">
-                  <!-- Product Meta Data -->
-                  <div class="product-meta-data">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon_cart_alt"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="arrow_left-right_alt"></i></a>
+          <div class="container">
+            <div class=" wow fadeInUp" data-wow-delay="100ms">
+              <div class="row">
+                {% for product in products %}
+                <div class="col-md-4">
+                  <div class="card mb-4 card-pro hover" style="max-width: 100%;">
+                    <div class="card-img" style="background-image:url({% if product.image %}{{product.image.url}} {% else %}{% static '/blog/images/No-Image-Placeholder.svg' %}{% endif %}" alt="">);">
+                      <div class="overlay">
+                        <div class="overlay-content">
+                          <a class="hover" href="{{product.get_absolute_url}}">View Product</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <a href="{{product.get_absolute_url}}"><h5 class="card-title p_title text-uppercase">{{ product.name }}</h5></a>
+                        </div>
+                        <div class="add-to-cart">
+                          <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                          {% csrf_token %}
+                            <p><button class="submit-btn" type="submit" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon_cart_alt fa-lg"></i></button></p>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-column justify-content-between">
+                        <div class="price text-danger text-center" style="font-size: 1.2rem;">
+                          <span>
+                            TZS {{ product.price }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <!-- Product Description -->
-                <div class="product-desc text-center pt-4">
-                  <a href="{{product.get_absolute_url}}" class="product-title">{{product.name}}</a>
-                  <h6 class="price">${{product.price}}</h6>
-                </div>
+                {% endfor %}
               </div>
             </div>
-            {% endfor %}
           </div>
-
           <!-- Pagination -->
           <nav>
             <ul class="pagination mb-0 mt-50">

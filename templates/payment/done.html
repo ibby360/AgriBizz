@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Payment Successfully{% endblock title %}
+{% load static %}
+{% block content %}
+
+<style>
+    p{
+        font-size: 1.5rem;
+    }
+</style>
+
+<section class="section-padding-80-0">
+    <div class="container text-center pb-5">
+        <h1>Your payment was Successfully!</h1>
+        <p>Your payment has been proces Successfully.</p>
+        <div>
+            <a href="{% url 'shop:product_list' %}" class="btn famie-btn">Continue Shopping</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
