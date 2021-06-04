@@ -1,0 +1,132 @@
+{% extends 'base.html' %} 
+{% block title %}Pay by Credit card{% endblock title%} 
+{% load static %} 
+{% block content %}
+
+
+<!-- Some test Card numbers
+4111 1111 1111 1111: Visa
+5555 5555 5555 4444: MasterCard
+-->
+
+<div class="container mb-5 mt-5">
+  <!-- Section Heading -->
+  <div class="section-heading text-center">
+      <h2>Pay by <span>Credit Card</span></h2>
+      <img src="{% static 'img/core-img/decor2.png' %}" alt="">
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="card p-5 shadow pay-card">
+        <form id="payment" method="post">
+    
+          <div class="form-group ">
+            <label for="card-number">Card Number</label>
+            <div id="card-number" class="form-control"></div>
+          </div>
+    
+          <div class="form-group ">
+            <label for="cvv">CVV</label>
+            <div id="cvv" class="form-control"></div>
+          </div>
+    
+          <div class="form-group ">
+            <label for="expiration-date">Expiration Date</label>
+            <div id="expiration-date" class="form-control"></div>
+          </div>
+    
+          <input type="hidden" id="nonce" name="payment_method_nonce" value="">
+          {% csrf_token %}
+          <div class="text-center">
+            <input type="submit" class="btn famie-btn" value="Pay">
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+  <!-- includes the Braintree JS client SDK -->
+  <script src="https://js.braintreegateway.com/web/3.58.0/js/client.min.js"></script>
+  <script src="https://js.braintreegateway.com/web/3.58.0/js/hosted-fields.min.js"></script>
+  <script>
+    var form = document.querySelector('#payment');
+    var submit = document.querySelector('input[type="submit"]');
+
+    braintree.client.create({
+      authorization: '{{ client_token }}'
+    }, function (clientErr, clientInstance) {
+      if (clientErr) {
+        console.error(clientErr);
+        return;
+      }
+
+      braintree.hostedFields.create({
+        client: clientInstance,
+          styles: {
+            input: {
+              color: "#282c37",
+              "font-size": "16px",
+              transition: "color 0.1s",
+              "line-height": "3",
+            },
+            // Style the text of an invalid input
+            "input.invalid": {
+              color: "#E53A40",
+            },
+            "input.valid": {
+              color: "green"},
+            // placeholder styles need to be individually adjusted
+            "::-webkit-input-placeholder": {
+              color: "rgba(0,0,0,0.6)",
+            },
+            ":-moz-placeholder": {
+              color: "rgba(0,0,0,0.6)",
+            },
+            "::-moz-placeholder": {
+              color: "rgba(0,0,0,0.6)",
+            },
+            ":-ms-input-placeholder": {
+              color: "rgba(0,0,0,0.6)",
+            },
+            
+          },
+          // Add information for individual fields
+          fields: {
+            number: {
+              selector: "#card-number",
+              placeholder: "1111 1111 1111 1111",
+            },
+            cvv: {
+              selector: "#cvv",
+              placeholder: "123",
+            },
+            expirationDate: {
+              selector: "#expiration-date",
+              placeholder: "10 / 2021",
+            },
+          },
+      }, function (hostedFieldsErr, hostedFieldsInstance) {
+        if (hostedFieldsErr) {
+          console.error(hostedFieldsErr);
+          return;
+        }
+
+        submit.removeAttribute('disabled');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+            if (tokenizeErr) {
+              console.error(tokenizeErr);
+              return;
+            }
+            // set nonce to send to the server
+            document.getElementById('nonce').value = payload.nonce;
+            // submit form
+            document.getElementById('payment').submit();
+          });
+        }, false);
+      });
+    });
+  </script>
+
+  {% endblock content %}
